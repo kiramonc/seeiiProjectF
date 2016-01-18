@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Unidad Básica" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="388" y="45" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Farm Animals" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="389" y="139" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="horse" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="121" y="208" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="chicken" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="306" y="448" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="cow" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="514" y="363" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="sheep" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="602" y="265" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="pig" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="715" y="180" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="rabbit" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="126" y="344" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="Farm Animals" />
+        <Variable name="Unidad Básica" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Farm Animals" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Farm Animals" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Farm Animals" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Farm Animals" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Farm Animals" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Farm Animals" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Unidad Básica" />
+          <Variable name="Farm Animals" />
+        </Variables>
+        <Values>0.98 0.02 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Farm Animals" />
+          <Variable name="horse" />
+          <Variable name="chicken" />
+          <Variable name="cow" />
+          <Variable name="sheep" />
+          <Variable name="pig" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.98 0.02 0.7833333333 0.2166666667 0.7833333333 0.2166666667 0.6166666667 0.3833333333 0.7833333333 0.2166666667 0.6166666667 0.3833333333 0.6166666667 0.3833333333 0.45 0.55 0.7833333333 0.2166666667 0.6166666667 0.3833333333 0.6166666667 0.3833333333 0.45 0.55 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.7833333333 0.2166666667 0.6166666667 0.3833333333 0.6166666667 0.3833333333 0.45 0.55 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.45 0.55 0.2833333333 0.7166666667 0.2833333333 0.7166666667 0.1166666667 0.8833333333 0.7833333333 0.2166666667 0.6166666667 0.3833333333 0.6166666667 0.3833333333 0.45 0.55 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.45 0.55 0.2833333333 0.7166666667 0.2833333333 0.7166666667 0.1166666667 0.8833333333 0.6166666667 0.3833333333 0.45 0.55 0.45 0.55 0.2833333333 0.7166666667 0.45 0.55 0.2833333333 0.7166666667 0.2833333333 0.7166666667 0.1166666667 0.8833333333 0.45 0.55 0.2833333333 0.7166666667 0.2833333333 0.7166666667 0.1166666667 0.8833333333 0.2833333333 0.7166666667 0.1166666667 0.8833333333 0.1166666667 0.8833333333 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>

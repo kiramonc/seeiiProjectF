@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/estudiante.xhtml">
+
+            <ui:define name="content">
+                <h:form id="frmMostrarResultados" onsubmit="#{beanRResultadosTest.inferenciaRed()}">
+                    <h:panelGrid id="panelMostrarResultados" columns="1" width="70%">
+                    <center>
+                        <p:outputLabel value="Resultados" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                    </center>
+                    <br/>
+                    
+                        <h:panelGroup>
+                        <div id="verResultadoEstudiante">
+                        <!--<p:commandButton value="Calcular" actionListener="#{beanRResultadosTest.inferenciaRed()}"/>-->
+                            <div id="mostrarCalificacion">
+                                <center><p:outputLabel value="#{beanRResultadosTest.calificacion()}" style="font-size: 18px; color: #036fab; text-align: right; background: white; padding: 5px;"/><br/>
+                                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgDialog/#{beanRResultadosTest.imagenResultado}" width="70%" height="70%" cache="false" style="alignment-adjust: central;"/></center>
+                                <div id="estadistica">
+                                <p:panel style="font-size: 14px; width: 100%; opacity: 0.7; background: white;">
+                                    <p:outputLabel value="Estadísticas del conocimiento" style="font-size: 16px; color: red;"/><br/><br/>
+                                    <ui:repeat var="item" varStatus="status" value="#{beanRResultadosTest.lstResultados}">
+                                        <p:outputLabel value="#{item}"/><br/>
+                                    </ui:repeat>
+                                </p:panel>
+                                    </div>
+                            </div>
+                            <div id="mostrarGraphUnidad">
+                                <div id="graphUnidad">
+                                <p:panel visible="#{beanRResultadosTest.mostrarGraphs}">
+                                    <center><p:outputLabel value="Resultados en la Unidad" style="font-size: 18px; color: #036fab; text-align: right; background: white; padding: 5px;"/>
+                                    <p:pieChart value="#{beanRResultadosTest.modelGraphUnidad}" showDataLabels="true" legendPosition="w" style="width: 300px; padding: 0px;" /></center>
+                                </p:panel>
+                                    </div>
+                                
+                            </div>
+                            <div id="mostrarGraphTema">
+                                <p:panel visible="#{beanRResultadosTest.mostrarGraphs}">
+                                    <center><p:outputLabel value="Resultados por tema" style="font-size: 18px; color: #036fab; text-align: right; background: white; padding: 5px; margin-bottom: 15px;"/></center>
+                                <p:barChart value="#{beanRResultadosTest.modelGraphTemas}" min="0" max="100" datatipFormat="%2$d" barPadding="25" legendPosition="ne"/>
+                            </p:panel>
+                            </div>
+                            
+                        </div>
+                            </h:panelGroup>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

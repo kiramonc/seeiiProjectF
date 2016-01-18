@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Unidad Bayes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Unidad Bayes" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>

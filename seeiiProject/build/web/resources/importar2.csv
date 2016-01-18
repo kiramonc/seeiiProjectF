@@ -1,0 +1,3 @@
+idUsuario,rol,nombre,apellido,fechaNacimiento,genero,username,password,estado,unidadE
+1,Estudiante,EstCarga,Prueba,22/11/2014,false,estCarga,estCarga,true,Unidad
+1,Estudiante,EstCarga1,Prueba,22/11/2014,true,estCarga1,estCarga1,true,Unidad

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Preg65" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="One" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="283" y="101" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Two" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="134" y="69" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="One" />
+        <Variable name="Preg65" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Two" />
+        <Variable name="Preg65" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg65" />
+          <Variable name="One" />
+          <Variable name="Two" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7396004739422448 0.2603995260577552 0.7396004739422448 0.2603995260577552 0.0033333333 0.9966666667</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+  <Policies>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="One" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="Two" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+  </Policies>
+</ProbModelXML>

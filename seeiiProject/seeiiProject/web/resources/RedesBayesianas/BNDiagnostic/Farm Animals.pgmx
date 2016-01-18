@@ -1,0 +1,1384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Preg11" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="94" y="58" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg12" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="200" y="47" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg13" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="422" y="50" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg14" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="592" y="54" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg15" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="710" y="64" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg16" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="840" y="54" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg17" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="996" y="52" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg18" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1190" y="48" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg19" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1358" y="44" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg20" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="244" y="122" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg21" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="424" y="122" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg22" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="650" y="122" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg23" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="850" y="126" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg24" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1070" y="120" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg25" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1272" y="128" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg26" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1386" y="204" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg27" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1168" y="192" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg28" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="996" y="200" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg29" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="780" y="190" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg30" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="574" y="202" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg31" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="354" y="198" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg32" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="116" y="186" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg33" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="114" y="294" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg34" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="112" y="426" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg35" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="138" y="556" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg36" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="176" y="690" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg37" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="336" y="686" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg38" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="566" y="690" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg39" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="716" y="684" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg40" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="882" y="684" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg41" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1066" y="688" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg42" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1236" y="692" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg43" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1356" y="648" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg44" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1388" y="490" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg45" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1428" y="336" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg46" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="174" y="774" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg47" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="340" y="814" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg48" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="450" y="798" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg49" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="612" y="798" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg50" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="790" y="806" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg51" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="978" y="800" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg52" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1148" y="804" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg53" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1296" y="786" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg54" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="298" y="596" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg55" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="534" y="608" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg56" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="730" y="602" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg57" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="930" y="602" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg58" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1146" y="596" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg59" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1280" y="542" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg60" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1464" y="598" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg61" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1504" y="418" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg62" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1502" y="266" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg63" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1490" y="128" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg64" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1504" y="60" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg65" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1538" y="530" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg66" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1356" y="254" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg67" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1370" y="406" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="Preg68" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1414" y="730" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="horse" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="1138" y="358" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="chicken" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="866" y="400" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="cow" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="624" y="396" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="sheep" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="494" y="374" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="pig" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="417" y="326" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="rabbit" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="960" y="296" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg11" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg14" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg17" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg20" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg23" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg34" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg35" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg37" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg39" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg43" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg47" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg58" />
+      </Link>
+      <Link directed="true">
+        <Variable name="horse" />
+        <Variable name="Preg59" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg12" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg14" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg18" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg21" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg24" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg32" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg35" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg38" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg42" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg46" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg48" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg57" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg60" />
+      </Link>
+      <Link directed="true">
+        <Variable name="chicken" />
+        <Variable name="Preg68" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg11" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg15" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg19" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg21" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg25" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg31" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg37" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg40" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg44" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg45" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg49" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg56" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg61" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cow" />
+        <Variable name="Preg67" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg13" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg15" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg17" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg22" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg26" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg30" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg36" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg39" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg42" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg44" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg50" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg55" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg62" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sheep" />
+        <Variable name="Preg66" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg13" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg16" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg18" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg20" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg27" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg33" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg36" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg41" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg46" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg51" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg54" />
+      </Link>
+      <Link directed="true">
+        <Variable name="pig" />
+        <Variable name="Preg65" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg12" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg16" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg19" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg22" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg28" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg29" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg38" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg40" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg41" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg43" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg45" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg52" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg53" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg63" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rabbit" />
+        <Variable name="Preg64" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg11" />
+          <Variable name="horse" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg12" />
+          <Variable name="chicken" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg13" />
+          <Variable name="sheep" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg14" />
+          <Variable name="horse" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg15" />
+          <Variable name="cow" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg16" />
+          <Variable name="pig" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg17" />
+          <Variable name="horse" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg18" />
+          <Variable name="chicken" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg19" />
+          <Variable name="cow" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg20" />
+          <Variable name="horse" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg21" />
+          <Variable name="chicken" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg22" />
+          <Variable name="sheep" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.6528006319229931 0.3471993680770069 0.6528006319229931 0.3471993680770069 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg23" />
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg24" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg25" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg26" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg27" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg28" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg29" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg30" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg31" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg32" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg33" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg34" />
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg35" />
+          <Variable name="horse" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg36" />
+          <Variable name="sheep" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg37" />
+          <Variable name="horse" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg38" />
+          <Variable name="chicken" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg39" />
+          <Variable name="horse" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg40" />
+          <Variable name="cow" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg41" />
+          <Variable name="pig" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg42" />
+          <Variable name="chicken" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg43" />
+          <Variable name="horse" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg44" />
+          <Variable name="cow" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg45" />
+          <Variable name="cow" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg46" />
+          <Variable name="chicken" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.78 0.21999999999999997 0.7417936294282023 0.25820637057179774 0.7417936294282023 0.25820637057179774 0.0033333333 0.9966666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg47" />
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg48" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg49" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg50" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg51" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg52" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg53" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg54" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg55" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg56" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg57" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg58" />
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg59" />
+          <Variable name="horse" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg60" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg61" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg62" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg63" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg64" />
+          <Variable name="rabbit" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg65" />
+          <Variable name="pig" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg66" />
+          <Variable name="sheep" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg67" />
+          <Variable name="cow" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg68" />
+          <Variable name="chicken" />
+        </Variables>
+        <Values>0.76 0.24 0.13 0.87</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+  <Policies>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="horse" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="chicken" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="cow" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="sheep" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="pig" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="rabbit" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+  </Policies>
+</ProbModelXML>

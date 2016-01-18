@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/admin.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="content">
+                <center><h2>Estadística Evaluación</h2></center><hr/>
+
+                <h:panelGrid id="panelListaEstResultado">
+                    <div id="estadisticaEvaluacion">
+                        <div id="listaEstResultado">
+                            <h:form id="frmListaEstResultado">
+                                <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+
+                                <h:panelGroup id="listaEstudianteResultado">
+                                    <center><h3>Lista de tests</h3></center>
+                                    <p:dataTable id="tablaEstudianteResultado" var="item" value="#{beanRResultTestAdmin.listaEstudiantesPorUnidad}" selection="#{beanRResultTestAdmin.estudianteSeleccionado}" selectionMode="single" rowKey="#{item.idEst}" paginator="true" rows="10" filteredValue="#{beanRResultTestAdmin.listaEstudiantesFiltrada}" styleClass="estiloTablaUnidad" tableStyleClass="tablaTest">
+                                        <p:ajax event="rowSelect" update=":frmGraficasPorEstudiante"/>
+                                        <p:column headerText="NOMBRE" filterBy="usuario.nombre">
+                                            <p:outputLabel value="#{item.usuario.nombre}"/>
+                                        </p:column>
+                                        <p:column headerText="Apellido" filterBy="usuario.apellido">
+                                            <p:outputLabel value="#{item.usuario.apellido}"/>
+                                        </p:column>
+                                        <p:column headerText="Operación">
+                                            <p:commandButton ajax="false" value="Ver Resultados" actionListener="#{beanRResultTestAdmin.inferenciaRed(item)}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </h:panelGroup>
+                            </h:form>
+                        </div>
+
+                        <div id="graficasPorEstudiante">
+                            <h:form id="frmGraficasPorEstudiante">
+                                <p:panel visible="#{beanRResultTestAdmin.mostrarGraphs}" style="background: transparent; border: none;">
+                                    <p:outputLabel value="Resultado en la Unidad:  " style="font-size: 14px; color: #036fab; font-family: cursive,sans-serif;"/>
+                                    <p:outputLabel value="#{beanRResultTestAdmin.valorUnidad}" style="font-size: 14px; font-family: cursive,sans-serif;"/>
+                                </p:panel>
+                                <div id="graphsTemas">
+                                    <p:panel visible="#{beanRResultTestAdmin.mostrarGraphs}">
+                                        <center><p:outputLabel value="Resultado Conocimiento de temas" style="font-size: 13px; font-family:cursive,sans-serif;" /></center>
+                                        <p:barChart value="#{beanRResultTestAdmin.modelGraphTemas}" min="0" max="100" datatipFormat="%2$d" barPadding="25" legendPosition="ne" />
+                                    </p:panel>
+                                </div>
+                                <div id="graphsConceptos">
+                                    <p:panel visible="#{beanRResultTestAdmin.mostrarGraphs}">
+                                        <center><p:outputLabel value="Resultado Conocimiento de conceptos" style="font-size: 13px; font-family:cursive,sans-serif;"/></center>
+                                        <p:lineChart value="#{beanRResultTestAdmin.modelGraphConcepto}" minY="0" maxY="100" datatipFormat="%2$d" legendPosition="e" seriesColors="ff8e1c,e6c20a,d9674f" />
+                                    </p:panel>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>        
+                </h:panelGrid>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

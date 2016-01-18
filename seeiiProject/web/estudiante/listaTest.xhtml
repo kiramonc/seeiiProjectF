@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/estudiante.xhtml">
+            <ui:define name="content">
+                <center><h2>Choose a theme</h2></center><hr/>
+                <h:form id="dockTest" style="padding-left: 60px;padding-top: 20px;">
+                    <p:dataGrid var="menuItem" value="#{beanRConsultarTest.verItemsMenu(beanSLogin.usernameLogin)}" columns="7" rows="12">
+                        <p:column style="text-align: center;">
+                            <p:panel footer="#{menuItem.nombre}" styleClass="panelStyle" style="font-size: 14px; text-shadow: 0px 0px 1.5px; font-family: cursive,sans-serif; text-transform: uppercase; background: white; width: 14%;height: 10%;">
+                                <h:commandLink action="#{beanSTest.iniciarTest(menuItem.idTema)}">
+                                    <p:graphicImage styleClass="imgItem" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgTemas/#{menuItem.imgTema}" width="80" height="80" cache="false"/>
+                                </h:commandLink>
+                            </p:panel>
+                        </p:column>
+                    </p:dataGrid>
+                </h:form>
+            </ui:define>
+
+            
+        </ui:composition>
+
+    </body>
+</html>

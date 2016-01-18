@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../templates/template.xhtml">
+
+            <ui:define name="content">
+                <center><h2>ADMINISTRACIÓN DE FICHAS</h2></center><hr/>
+
+                <h:panelGrid id="panelAdministracionFicha" columns="2" cellspacing="25px">
+                    <h:form id="frmListarFicha">
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+
+                        <h:panelGroup id="listaFicha">
+                            <center><h3>Lista de Temas</h3></center>
+                            <h4>NOTA: Elegir un tema para crear una ficha</h4>                           
+                            <p:dataTable id="tablaListaFicha" var="item" value="#{beanRFicha.getAllTemas}" styleClass="estiloTablaFicha" tableStyleClass="tablaTest">
+                            <!--p:ajax event="rowSelect" update=":frmDatosFicha:panelDatosFicha"/-->
+                            <p:column headerText="TEMA" >
+                                <p:outputLabel value="#{item.nombre}"/>
+                            </p:column>
+                            <p:column headerText="UNIDAD" >
+                                <p:outputLabel value="#{item.unidadensenianza.nombreUnidad}"/>
+                            </p:column>
+                            </p:dataTable>
+                        </h:panelGroup>
+                    </h:form>
+                </h:panelGrid>
+
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

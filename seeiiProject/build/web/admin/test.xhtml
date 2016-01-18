@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/admin.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="content">
+
+                <center><h2>ADMINISTRACIÓN DE TEST</h2></center><hr/>
+
+                <h:panelGrid id="panelAdministracionTest" columns="2" cellspacing="25px">
+                    <h:form id="frmListarTest">
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+
+                        <h:panelGroup id="listaTest">
+                            <center><h3>Lista de tests</h3></center>
+                            <p:dataTable id="tablaListaTest" var="item" value="#{beanRTema.allTema}" selection="#{beanRTema.tema}" selectionMode="single" rowKey="#{item.idTema}" paginator="true" rows="10" filteredValue="#{beanRTema.listaTemaFiltrada}" styleClass="estiloTablaUnidad" tableStyleClass="tablaTest">
+                                <p:ajax event="rowSelect" update=":frmDatosTest:panelDatosTest"/>
+                                <p:column headerText="NOMBRE TEMA" filterBy="nombre">
+                                    <p:outputLabel value="#{item.nombre}"/>
+                                </p:column>
+                                <p:column headerText="NOMBRE UNIDAD" filterBy="unidadensenianza.nombreUnidad">
+                                    <p:outputLabel value="#{item.unidadensenianza.nombreUnidad}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:panelGroup>
+                    </h:form>
+
+
+                    <h:form id="frmDatosTest">
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+
+                        <h:panelGrid columns="1" id="panelDatosTest">
+                            <h:panelGrid columns="3">
+                                <p:outputLabel value="Nombre Unidad: " for="txtNombreUnidad"/>
+                                <p:inputText id="txtNombreUnidad" label="Unidad" value="#{beanRTema.tema.unidadensenianza.nombreUnidad}" disabled="true">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtNombreUnidad"/>
+
+                                <p:outputLabel value="Nombre Tema: " for="txtNombreTema"/>
+                                <p:inputText id="txtNombreTema" label="Tema" value="#{beanRTema.tema.nombre}" disabled="true">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtNombreTema"/>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2">
+                                <h3>Preguntas:</h3>
+                                <p:commandButton value="Crear Pregunta" actionListener="#{beanRPregunta.abrirDialogoCrearPregunta(beanRTema.tema.idTema)}" styleClass="botonCrearNuevo" icon="ui-icon-circle-plus" disabled="#{beanRTema.deshabilitarBotonCrearPregunta()}"/>
+                            </h:panelGrid>
+
+                            <p:dataTable id="tablaPreguntas" var="item" value="#{beanRPregunta.getPreguntasPorTest(beanRTema.tema)}" selection="#{beanRPregunta.pregunta}" selectionMode="single" rowKey="#{item.idPregunta}" paginator="true" rows="10" styleClass="estiloTablaPregunta" tableStyleClass="tablaPregunta">
+                                <p:ajax event="rowSelect" update=":frmEditarPregunta:panelEditarPregunta" oncomplete="dialogEditarPregunta.show()" listener="#{beanRPregunta.cargarPregunta()}"/>
+                                <p:column headerText="ENUNCIADO" width="60%">
+                                    <p:outputLabel value="#{item.enunciado}"/>
+                                </p:column>
+
+                                <p:column headerText="TIPO PREGUNTA" width="30%">
+                                    <p:outputLabel value="#{beanRPregunta.outputLabel(item)}"/>
+                                </p:column>
+                                <p:column headerText="OPERACIONES" width="10%">
+                                    <p:commandButton value="Ver items" actionListener="#{beanRPregunta.abrirDialogoVerItems(item.idPregunta)}" immediate="true">
+                                    </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                            <center><p:commandButton value="Eliminar Tema" title="Eliminar Tema"  onclick="PF('cd').show()" styleClass="botonstyle" icon="ui-icon-trash" disabled="#{beanRTema.deshabilitarBotonEliminarTema()}"/></center>
+                            <p:confirmDialog message="El tema será eliminado, ¿Desea continuar?" header="Eliminar" severity="alert" widgetVar="cd" styleClass="confirmEliminar">
+                                <center>
+                                <p:commandButton ajax="false" value="Aceptar" actionListener="#{beanRTema.eliminar()}" oncomplete="PF('cd').hide()"/>
+                                <p:commandButton value="Cancelar" onclick="PF('cd').hide();" type="button" />
+                                </center>
+                            </p:confirmDialog>
+
+
+                        </h:panelGrid>
+                    </h:form>
+                </h:panelGrid>
+
+                <h:form id="frmVerItems">
+                    <h:panelGrid id="panelVerItems">
+                        <p:dialog header="Items de la pregunta" widgetVar="dialogVerItems" modal="true" height="460px" width="75%">
+                            <div id="datosVerItems">
+                                <div id="datosPreguntaVerItems">
+
+                                    <h:panelGrid columns="3">
+                                        <p:outputLabel value="Enunciado: "  for="txtEnunciadoPregunta"/>
+                                        <p:inputTextarea id="txtEnunciadoPregunta" value="#{beanRPregunta.pregunta.enunciado}" cols="30" rows="6" readonly="true" />
+                                        <p:message for="txtEnunciadoPregunta"/>
+
+                                        <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
+                                        <p:inputText id="menuTipoPreg" value="#{beanRPregunta.outputLabel()}" readonly="true" size="28"/>
+                                        <p:message for="menuTipoPreg"/>
+                                    </h:panelGrid>
+
+                                    <center><p:outputLabel value="Conceptos" for="lstConceptos" style="text-shadow: 0px 0px 0.5px; color: crimson"/></center>
+                                    <p:pickList id="lstConceptos" value="#{beanRPregunta.modelConc}" var="concepto" itemLabel="#{concepto.nombreConcepto}" itemValue="#{concepto}" converter="conceptoConverter" disabled="true"/>
+                                </div>
+                                <div id="datosItemsVerItems">
+                                    <h:panelGrid columns="2">
+                                        <h3>ITEMS:</h3>
+                                        <p:commandButton value="Crear Item" actionListener="#{beanRItem.abrirDialogoCrearItem(beanRPregunta.pregunta.idPregunta)}" styleClass="botonCrearNuevo" icon="ui-icon-circle-plus" disabled="false"/>
+                                    </h:panelGrid>
+                                    <p:dataTable id="tablaItems" var="item" value="#{beanRItem.getItemsPorPregunta(beanRPregunta.pregunta)}" selection="#{beanRItem.item}" selectionMode="single" rowKey="#{item.idItem}" paginator="true" rows="10" >
+                                        <p:ajax event="rowSelect" update=":frmEditarItems:panelEditarItems" oncomplete="dialogEditarItems.show()"/>
+                                        <p:column headerText="NOMBRE ITEM">
+                                            <p:outputLabel value="#{item.nombreItem}"/>
+                                        </p:column>
+                                        <p:column headerText="TRADUCCIÓN">
+                                            <p:outputLabel value="#{item.traduccion}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                    <center><p:commandButton ajax="false" value="Guardar cambios" actionListener="#{beanRPregunta.actualizar()}" update="frmVerItems" styleClass="botonstyle"/></center>
+                                </div>
+
+                            </div>
+                        </p:dialog>
+                    </h:panelGrid>
+                </h:form>
+
+
+                <h:form id="frmEditarPregunta">
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                    <p:dialog header="Datos de la pregunta" widgetVar="dialogEditarPregunta" modal="true">
+                        <h:panelGrid id="panelEditarPregunta" columns="2">
+                            <h:panelGrid columns="3">
+                                <p:outputLabel value="Enunciado: "  for="txtEnunciadoPregunta"/>
+                                <p:inputTextarea id="txtEnunciadoPregunta" label="Enunciado" value="#{beanRPregunta.pregunta.enunciado}" required="true" cols="30">
+                                </p:inputTextarea>
+                                <p:message for="txtEnunciadoPregunta"/>
+
+                                <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
+                                <p:selectOneMenu id="menuTipoPreg" value="#{beanRPregunta.tipoPreg}" immediate="true" style="width: 240px;">
+                                    <f:ajax render="txtDificultad txtIndiceDis txtfDescuido" />
+                                    <f:selectItem itemLabel="-Escoger-" noSelectionOption="true"/>
+                                    <f:selectItem itemValue="listenF" itemLabel="Escuchar (Fácil)" />
+                                    <f:selectItem itemValue="listenM" itemLabel="Escuchar (Medio)"/>
+                                    <f:selectItem itemValue="speakF" itemLabel="Hablar (Fácil) "/>
+                                    <f:selectItem itemValue="speakM" itemLabel="Hablar (Medio)"/>
+                                    <f:selectItem itemValue="speakD" itemLabel="Escuchar y Hablar (Difícil)"/>
+                                </p:selectOneMenu>
+                                <p:message for="menuTipoPreg"/>
+
+                                <p:outputLabel value="Dificultad: " for="txtDificultad"/>
+                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.pregunta.dificultad}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtDificultad"/>
+
+                                <p:outputLabel value="Índice de discriminación: " for="txtIndiceDis"/>
+                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.pregunta.indiceDis}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtIndiceDis"/>
+
+                                <p:outputLabel value="Factor descuido: " for="txtfDescuido"/>
+                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.pregunta.fdescuido}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtfDescuido"/>
+                            </h:panelGrid>
+
+                            <h:panelGroup>
+                                <center><p:outputLabel value="Conceptos" for="lstConceptos" style="text-shadow: 0px 0px 0.5px; color: crimson"/></center>
+                                <p:pickList id="lstConceptos" value="#{beanRPregunta.modelConc}" var="concepto" itemLabel="#{concepto.nombreConcepto}" itemValue="#{concepto}" converter="conceptoConverter"/>
+                                <p:message for="lstConceptos"/>
+                            </h:panelGroup>
+
+                        </h:panelGrid>
+                        <center>
+                            <p:commandButton value="Actualizar" ajax="false" actionListener="#{beanRPregunta.actualizar()}" styleClass="botonstyle" icon="ui-icon-circle-check"/>
+                            <p:commandButton ajax="false" value="Eliminar" title="Eliminar" actionListener="#{beanRPregunta.eliminar()}" onclick="if (!confirm('Desea eliminar la pregunta'))
+                                        return false;" styleClass="botonstyle" icon="ui-icon-trash"/>
+                        </center>
+
+                        <p:blockUI block="panelEditarPregunta" trigger="panelEditarPregunta">
+                            LOADING<br />
+                        </p:blockUI>
+                    </p:dialog>
+                </h:form>
+
+
+                <h:form id="frmCrearPregunta">
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                    <p:dialog header="Datos de la pregunta" widgetVar="dialogCrearPregunta" modal="true">
+                        <h:panelGrid id="panelCrearPregunta" columns="2">
+                            <h:panelGrid columns="3">
+                                <p:outputLabel value="Enunciado: "  for="txtEnunciadoPregunta"/>
+                                <p:inputTextarea id="txtEnunciadoPregunta" label="Enunciado" value="#{beanRPregunta.pregunta.enunciado}" required="true" cols="30">
+                                </p:inputTextarea>
+                                <p:message for="txtEnunciadoPregunta"/>
+
+                                <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
+                                <p:selectOneMenu id="menuTipoPreg" value="#{beanRPregunta.tipoPreg}" immediate="true"  style="width: 240px;">
+                                    <f:ajax render="txtDificultad txtIndiceDis txtfDescuido" />
+                                    <f:selectItem itemLabel="-Escoger-" noSelectionOption="true"/>
+                                    <f:selectItem itemValue="listenF" itemLabel="Escuchar (Fácil)" />
+                                    <f:selectItem itemValue="listenM" itemLabel="Escuchar (Medio)"/>
+                                    <f:selectItem itemValue="speakF" itemLabel="Hablar (Fácil) "/>
+                                    <f:selectItem itemValue="speakM" itemLabel="Hablar (Medio)"/>
+                                    <f:selectItem itemValue="speakD" itemLabel="Escuchar y Hablar (Difícil)"/>
+                                </p:selectOneMenu>
+                                <p:message for="menuTipoPreg"/>
+
+                                <p:outputLabel value="Dificultad: " for="txtDificultad"/>
+                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.pregunta.dificultad}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtDificultad"/>
+
+                                <p:outputLabel value="Índice discriminación: " for="txtIndiceDis"/>
+                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.pregunta.indiceDis}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtIndiceDis"/>
+
+                                <p:outputLabel value="Factor descuido: " for="txtfDescuido"/>
+                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.pregunta.fdescuido}" disabled="true" style="width: 230px;">
+                                    <f:validator validatorId="validatorVacio"/>
+                                </p:inputText>
+                                <p:message for="txtfDescuido"/>
+                            </h:panelGrid>
+
+                            <h:panelGroup>
+                                <center><p:outputLabel value="Conceptos" for="lstConceptos" style="text-shadow: 0px 0px 0.5px; color: crimson"/></center>
+                                <p:pickList id="lstConceptos" value="#{beanRPregunta.modelConc}" var="concepto" itemLabel="#{concepto.nombreConcepto}" itemValue="#{concepto}" converter="conceptoConverter"/>
+                                <p:message for="lstConceptos"/>
+                            </h:panelGroup>
+
+
+                        </h:panelGrid>
+                        <center>
+                            <p:commandButton value="Guardar" ajax="false" actionListener="#{beanRPregunta.registrar(beanRTema.tema)}" styleClass="botonstyle" icon="ui-icon-circle-plus"/>
+                        </center>
+                    </p:dialog>
+                    
+                    <p:dialog header="No se puede crear pregunta" widgetVar="dialogSinConcepto" modal="true">
+                        <br/>
+                        <p:outputLabel value="No se ha agregado conceptos para el tema."/>
+                        <br/>
+                        
+                        <p:outputLabel value="Agregue conceptos para el tema en Unidad."/>
+                        <br/>
+                        <br/>
+                        
+                                <center>
+                                <p:commandButton value="Aceptar" onclick="PF('dialogSinConcepto').hide();" type="button" />
+                                </center>
+                    </p:dialog>
+                </h:form>
+
+                <p:dialog header="Datos del item" widgetVar="dialogEditarItems" modal="true">
+                    <h:form id="frmEditarItems" enctype="multipart/form-data">
+                        <h:panelGrid id="panelEditarItems" columns="3">
+
+                            <p:outputLabel value="Nombre Item: " for="txtNombreItem"/>
+                            <p:inputText id="txtNombreItem" label="Peso:" size="40" value="#{beanRItem.item.nombreItem}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtNombreItem"/>
+
+                            <p:outputLabel value="Traducción: " for="txtTraduccion"/>
+                            <p:inputText id="txtTraduccion" label="Peso:" size="40" value="#{beanRItem.item.traduccion}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtTraduccion"/>
+
+                            <p:outputLabel value="Imagen: " for="uploadImagen"/>
+                            <p:fileUpload id="uploadImagen" value="#{beanRItem.imagen}" mode="simple"/>
+                            <p:message for="uploadImagen"/>
+
+                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRItem.item.imgItem}" width="60" height="60" cache="false"/>
+                            <p:outputLabel value="#{beanRItem.item.imgItem}"/>
+                        </h:panelGrid>
+                        <center>
+                            <p:commandButton value="Actualizar" ajax="false" actionListener="#{beanRItem.actualizar()}" styleClass="botonstyle" icon="ui-icon-circle-check"/>
+                            <p:commandButton ajax="false" value="Eliminar" title="Eliminar" actionListener="#{beanRItem.eliminar()}" onclick="if (!confirm('Desea eliminar el item'))
+                                        return false;" styleClass="botonstyle" icon="ui-icon-trash"/>
+                        </center>
+                    </h:form>
+                </p:dialog>
+
+                <p:dialog header="Datos del item" widgetVar="dialogCrearItems" modal="true">
+                    <h:form id="frmCrearItems" enctype="multipart/form-data">
+                        <h:panelGrid id="panelCrearItems" columns="3">
+                            <p:outputLabel value="Nombre Item: " for="txtNombreItem"/>
+                            <p:inputText id="txtNombreItem" label="Peso:" size="40" value="#{beanRItem.item.nombreItem}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtNombreItem"/>
+
+                            <p:outputLabel value="Traducción: " for="txtTraduccion"/>
+                            <p:inputText id="txtTraduccion" label="Peso:" size="40" value="#{beanRItem.item.traduccion}">
+                                <f:validator validatorId="validatorVacio"/>
+                            </p:inputText>
+                            <p:message for="txtTraduccion"/>
+
+                            <p:outputLabel value="Imagen: " for="uploadImagen"/>
+                            <p:fileUpload id="uploadImagen" value="#{beanRItem.imagen}" mode="simple" previewWidth="50" update="vistaprevia" />
+                            <p:message for="uploadImagen"/>
+                        </h:panelGrid>
+                        <center>
+                            <p:commandButton ajax="false" value="Guardar" actionListener="#{beanRItem.registrar(beanRPregunta.pregunta)}" styleClass="botonstyle" icon="ui-icon-circle-plus"/>
+                        </center>
+                    </h:form>
+                </p:dialog>
+
+
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

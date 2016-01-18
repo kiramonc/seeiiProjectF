@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/doTest.xhtml">
+
+            <ui:define name="top"></ui:define>
+
+            <ui:define name="content">
+
+                <h:form id="vistaPrincipal">
+                    <p:panel visible="#{beanRPresentarTest1.mostrarVistP}" style="height: 450px;">
+                        <center>
+                            <p:commandButton ajax="false" value="Start" actionListener="#{beanRPresentarTest1.obtenerPregunta(beanSTest.codigoTest)}" styleClass="botonEmpezar" icon="iconEmpezar" onmouseover="javascript:laugh();"/>
+                            <p:commandButton ajax="false" value="Maybe later..." action="#{beanRPresentarTest1.salir()}" styleClass="botonMomento" icon="iconMomento"/>
+                        </center>
+                    </p:panel>
+                    <p:panel visible="#{beanRPresentarTest1.mostrarSalir}" style="height: 150px;">
+                        <p:commandButton id="botonTerminarTest" onclick="PF('dialogSalir').show()" value="Terminar Test" style="background-image:url('http://localhost:8084/seeiiProject/resources/iconos/botonTerminar.png'); background-repeat: no-repeat; background-size: 100% 100%; width: 150px;height: 100px;padding-right: 30px;font-size: 14px; margin-left: 20px;margin-top: 20px;"/>
+                        <p:dialog widgetVar="dialogSalir" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarSalir();">
+                            <input id="enunciadoSalir"  disabled='true' type="hidden" value="Do you want stop testing?"></input>
+                            <h:panelGrid id="panelSalir" columns="1">
+                                <center><p:outputLabel value="Do you want stop testing?" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center;"/></center>
+                                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgDialog/Salir.jpg" width="80%" height="auto" cache="false" style="object-position: center;"/>
+                            </h:panelGrid>
+                            <center>
+                                <p:commandButton ajax="false" value="Sí" action="#{beanRPresentarTest1.terminarTest()}" oncomplete="PF('dialogSalir').hide()" style="width: 40%;"/>
+                                <p:commandButton ajax="false" value="No" onclick="PF('dialogSalir').hide();" type="button" style="width: 40%;" />
+                            </center>
+                        </p:dialog>
+                        <br/>
+                    </p:panel>
+                </h:form>
+
+                <!-- MOSTRAR TEST PARA LISTEN-->
+                <h:form id="frmMostrarTestListen">
+                    <p:panel visible="#{beanRPresentarTest1.mostrarPreguntaListen}">
+                        <center>
+                            <input id="enunciadoPregListen1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
+                            <p:outputLabel id="enunciadoPregListen" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                        </center>
+                        <br/>
+                        <p:dataGrid id="gridItemsPreguntaListen" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12" styleClass="itemsPreguntaListen">
+                            <p:panel header="#{item.nombreItem}" style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; width: auto; display: table-row;">
+                                <h:panelGrid columns="1">
+                                    <center>
+                                        <p:commandLink update=":frmResultadoListen:panelResultadoListen" onclick="PF('dialogResultadoListen').show()" ignoreAutoUpdate="true" >
+                                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{item.imgItem}" width="170" height="170" cache="false" style="background: white;"/>
+                                            <f:setPropertyActionListener value="#{item.nombreItem}" target="#{beanRPresentarTest1.respuestTemp}" />
+                                        </p:commandLink>
+                                    </center>
+                                </h:panelGrid>
+                            </p:panel>                            
+                        </p:dataGrid>
+                    </p:panel>
+                </h:form>
+
+                <!-- MOSTRAR TEST PARA SPEAK_F-->
+                <h:form id="frmMostrarTestSpeakF" >
+                    <p:panel visible="#{beanRPresentarTest1.mostrarPreguntaSpeakF}">
+                        <center>
+                            <input id="enunciadoPregSpeakF1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
+                            <p:outputLabel id="enunciadoPregSpeakF" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                        </center>
+                        <br/>
+                        <p:dataGrid id="gridItemsPreguntaSpeakF" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12" styleClass="itemsPreguntaListen">
+                            <p:panel header="#{item.nombreItem}" style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; width: auto; display: table-row;">
+                                <h:panelGrid columns="1">
+                                    <center>
+                                        <p:commandLink update=":frmResultadoSpeakF:panelResultadoSpeakF" onclick="PF('dialogResultadoSpeakF').show()" ignoreAutoUpdate="true" >
+                                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{item.imgItem}" width="170" height="170" cache="false" style="background: white;" />
+                                            <f:setPropertyActionListener value="#{item.nombreItem}" target="#{beanRPresentarTest1.respuestTemp}" />
+                                        </p:commandLink>
+                                    </center>
+                                </h:panelGrid>
+                            </p:panel>                            
+                        </p:dataGrid>
+                    </p:panel>
+                </h:form>
+
+                <!-- MOSTRAR TEST PARA SPEAK_M_D-->
+                <h:form id="frmMostrarTestSpeakMD">
+                    <p:panel visible="#{beanRPresentarTest1.mostrarPreguntaSpeakMD}">
+                        <center>
+                            <input id="enunciadoPregSpeakMD1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
+                            <p:outputLabel id="enunciadoPregSpeakMD" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                        </center>
+                        <br/>
+                        <p:dataGrid id="gridItemsPreguntaSpeakMD" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12">
+                            <p:panel header="#{item.nombreItem}" style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; text-align: center;">
+                                <h:panelGrid columns="1" style="width: 100%;">
+                                    <center>
+                                        <p:commandLink update=":frmResultadoSpeakMD:panelResultadoSpeakMD" onclick="PF('dialogResultadoSpeakMD').show()" ignoreAutoUpdate="true" >
+                                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{item.imgItem}" width="170" height="170" cache="false" style="background: white;"/>
+                                            <f:setPropertyActionListener value="#{item.nombreItem}" target="#{beanRPresentarTest1.respuestTemp}" />
+                                        </p:commandLink>
+                                    </center>
+                                </h:panelGrid>
+                            </p:panel>                            
+                        </p:dataGrid>
+                    </p:panel>
+                </h:form>
+
+                <!-- FORMULARIO RESULTADO PARA PREGUNTAS LISTEN -->    
+                <h:form id="frmResultadoListen">
+                    <p:dialog widgetVar="dialogResultadoListen" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarListen();">
+                        <p:outputPanel id="panelResultadoListen">
+                            <h:panelGrid columns="1">
+                                <input disabled='true' type="hidden" value="#{beanRPresentarTest1.guardarRespuestaTemp()}"></input>
+                                <center>
+                                    <p:outputLabel value="#{beanRPresentarTest1.resultado}" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; display: block;"/>
+                                </center>
+                                <input id="soundListen"  disabled='true' type="hidden" value="#{beanRPresentarTest1.correcto}"></input>
+                                <input id="resultadoPregListen"  disabled='true' type="hidden" value="#{beanRPresentarTest1.resultado}"></input>
+                                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRPresentarTest1.imgItemSeleccionado}" width="170" height="170" cache="false" style="object-position: center;"/>
+                            </h:panelGrid>
+                            <center>
+                                <p:commandButton ajax="false" value="Siguiente" action="#{beanRPresentarTest1.actualizarPagina(beanSTest.codigoTest)}" onclick="PF('dialogResultado').hide()" style="background-image:url('http://localhost:8084/seeiiProject/resources/iconos/boton3.png'); background-repeat: no-repeat; background-size: 100% 100%; width: 150px;height: 100px;padding-left: 40px; padding-top:15px;font-size: 14px;"/>
+                            </center>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+
+                <!-- FORMULARIO RESULTADO PARA PREGUNTAS SPEAK_F -->
+                <h:form id="frmResultadoSpeakF">
+                    <p:dialog widgetVar="dialogResultadoSpeakF" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarSpeakF();" onHide="javascript:pausarAnnyang();">
+                        <p:outputPanel id="panelResultadoSpeakF">
+                            <h:panelGrid columns="2">
+                                <h:panelGroup>
+                                    <input disabled='true' type="hidden" value="#{beanRPresentarTest1.guardarRespuestaTemp()}"></input>
+                                    <input id="itemSelectedF"  disabled='true' type="hidden" value="#{beanRPresentarTest1.nombreItemSeleccionado}"></input>
+                                    <input id="resultadoPregSpeakF"  disabled='true' type="hidden" value="#{beanRPresentarTest1.resultado}"></input>
+                                </h:panelGroup>
+                                <h:panelGroup/>
+                                <h:panelGroup>
+                                    <center>
+                                        <p:outputLabel value="#{beanRPresentarTest1.resultado}" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center;"/>
+                                        <br/>
+                                        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRPresentarTest1.imgItemSeleccionado}" width="170" height="170" cache="false" style="object-position: center;"/>
+                                    </center>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <center>
+                                        <p:commandLink ajax="true" onclick="javascript: escucharAnnyangF(frmRespSpeakF.respPregSpeakF, frmRespSpeakF.respPregSpeakFMostrada, 'frmRespSpeakF:correctSpeakF')">
+                                            <div id="iconListenF">
+                                                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
+                                            </div>
+                                        </p:commandLink>
+                                    </center>
+                                </h:panelGroup>
+                            </h:panelGrid>
+
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:form id="frmRespSpeakF">
+                    <p:dialog widgetVar="dialogRespSpeakF" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarRespSpeakF();">
+                        <p:outputPanel id="panelRespSpeakF">
+                            <center>
+                                <input id="respPregSpeakF" value="" disabled='true' type="hidden"/>
+                                <input id="soundSpeakF"  disabled='true' type="hidden" value="#{beanRPresentarTest1.valorBinding}"></input>
+                                <h:inputHidden id="correctSpeakF" value="#{beanRPresentarTest1.valorBinding}" binding="#{beanRPresentarTest1.inputCorrectF}" />
+                                <input id="respPregSpeakFMostrada" disabled='true' type="text" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; border: none; background: transparent;"/>
+                                <br/>
+                                <p:commandButton id="botonSpeakF" ajax="false" value="Siguiente" action="#{beanRPresentarTest1.actualizarSpeakF(beanSTest.codigoTest)}" onclick="PF('dialogRespSpeakF').hide()" style="background-image:url('http://localhost:8084/seeiiProject/resources/iconos/boton3.png'); background-repeat: no-repeat; background-size: 100% 100%; width: 150px;height: 100px;padding-left: 40px; padding-top:15px;font-size: 14px;">
+                                </p:commandButton>
+                            </center>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+
+                <!-- FORMULARIO RESULTADO PARA PREGUNTAS SPEAK_M_D -->
+                <h:form id="frmResultadoSpeakMD">
+                    <p:dialog widgetVar="dialogResultadoSpeakMD" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarSpeakMD();" onHide="javascript:pausarAnnyang();">
+                        <p:outputPanel id="panelResultadoSpeakMD">
+                            <h:panelGrid columns="2">
+                                <h:panelGroup>
+                                    <input disabled='true' type="hidden" value="#{beanRPresentarTest1.guardarRespuestaTemp()}"></input>
+                                    <input id="itemSelectedMD"  disabled='true' type="hidden" value="#{beanRPresentarTest1.nombreItemSeleccionado}"></input>
+                                    <input id="resultadoPregSpeakMD"  disabled='true' type="hidden" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}"></input>
+                                </h:panelGroup>
+                                <h:panelGroup/>
+                                <h:panelGroup>
+                                    <center>
+                                        <p:outputLabel value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center;"/>
+                                        <br/>
+                                        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRPresentarTest1.imgItemSeleccionado}" width="270" height="270" cache="false" style="object-position: center;"/>
+                                    </center>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <center>
+                                        <p:commandLink ajax="true" onclick="javascript: escucharAnnyangMD(frmRespSpeakMD.respPregSpeakMD, frmRespSpeakMD.respPregSpeakMDMostrada, 'frmRespSpeakMD:correctoSpeakMD')">
+                                            <div id="iconListenMD">
+                                                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
+                                            </div>
+                                        </p:commandLink>
+                                    </center>
+                                </h:panelGroup>
+                            </h:panelGrid>
+
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:form id="frmRespSpeakMD">
+                    <p:dialog widgetVar="dialogRespSpeakMD" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarRespSpeakMD();" >
+                        <p:outputPanel id="panelRespSpeakMD">
+                            <center>
+                                <input id="respPregSpeakMD"  disabled='true' type="hidden"></input>
+                                <input id="soundSpeakMD"  disabled='true' type="hidden" value="#{beanRPresentarTest1.valorBinding}"></input>
+                                <h:inputHidden id="correctoSpeakMD" value="#{beanRPresentarTest1.valorBinding}" binding="#{beanRPresentarTest1.inputCorrect}" />
+                                <input id="respPregSpeakMDMostrada"  disabled='true' type="text" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; border: none; background: transparent;"></input>
+                                <br/>
+                                <p:commandButton id="botonSpeakMD" ajax="false" value="Siguiente" action="#{beanRPresentarTest1.actualizarSpeakMD(beanSTest.codigoTest)}" onclick="PF('dialogRespSpeakMD').hide()" style="background-image:url('http://localhost:8084/seeiiProject/resources/iconos/boton3.png'); background-repeat: no-repeat; background-size: 100% 100%; width: 150px;height: 100px;padding-left: 40px; padding-top:15px;font-size: 14px;"/>
+                            </center>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+
+                <h:form id="frmTerminarTest">
+                    <p:dialog widgetVar="dialogTerminarTest" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablar();">
+                        <p:outputPanel id="panelTerminarTest">
+                            <center>
+                                <p:outputLabel value="Terminó el test. Todos los conceptos han sido evaluados" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center;"/>
+                            </center>
+                            <br/>
+                            <p:graphicImage value="../../resources/imagen/imgDialog/Correcto.gif" width="100" height="100" cache="false" style="object-position: center;"/>
+                        
+                        <center>
+                            <p:commandButton ajax="false" value="Aceptar" action="#{beanRPresentarTest1.terminarTest()}" styleClass="botonstyle" icon="ui-icon-circle-plus"/>
+                        </center>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:outputScript library="js" name="speaking.js" target="body"/>
+                <h:outputScript library="js" name="annyang.js" target="body"/>
+                <h:outputScript library="js" name="annyang.min.js" target="body"/>
+                <script src='https://code.responsivevoice.org/responsivevoice.js'></script>  
+            </ui:define>
+
+            <ui:define name="bottom"></ui:define>
+        </ui:composition>
+
+
+        <!--<script src="/javax.faces.resource/annyang.js?ln=js"></script>
+        <script src="/javax.faces.resource/annyang.min.js?ln=js"></script>
+        <script src="/javax.faces.resource/speaking.js?ln=js"></script>-->
+
+
+    </body>
+</html>
