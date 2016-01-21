@@ -1,5 +1,5 @@
 package Pojo;
-// Generated 19/11/2015 09:00:12 PM by Hibernate Tools 3.6.0
+// Generated 18/01/2016 09:37:35 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -12,10 +12,8 @@ public class Pregunta  implements java.io.Serializable {
 
 
      private int idPregunta;
+     private Tipopregunta tipopregunta;
      private String enunciado;
-     private double dificultad;
-     private double fdescuido;
-     private double indiceDis;
      private String nombrePreg;
      private boolean estado;
      private Set pregConcs = new HashSet(0);
@@ -25,21 +23,17 @@ public class Pregunta  implements java.io.Serializable {
     }
 
 	
-    public Pregunta(int idPregunta, String enunciado, double dificultad, double fdescuido, double indiceDis, String nombrePreg, boolean estado) {
+    public Pregunta(int idPregunta, Tipopregunta tipopregunta, String enunciado, String nombrePreg, boolean estado) {
         this.idPregunta = idPregunta;
+        this.tipopregunta = tipopregunta;
         this.enunciado = enunciado;
-        this.dificultad = dificultad;
-        this.fdescuido = fdescuido;
-        this.indiceDis = indiceDis;
         this.nombrePreg = nombrePreg;
         this.estado = estado;
     }
-    public Pregunta(int idPregunta, String enunciado, double dificultad, double fdescuido, double indiceDis, String nombrePreg, boolean estado, Set pregConcs, Set items) {
+    public Pregunta(int idPregunta, Tipopregunta tipopregunta, String enunciado, String nombrePreg, boolean estado, Set pregConcs, Set items) {
        this.idPregunta = idPregunta;
+       this.tipopregunta = tipopregunta;
        this.enunciado = enunciado;
-       this.dificultad = dificultad;
-       this.fdescuido = fdescuido;
-       this.indiceDis = indiceDis;
        this.nombrePreg = nombrePreg;
        this.estado = estado;
        this.pregConcs = pregConcs;
@@ -53,33 +47,19 @@ public class Pregunta  implements java.io.Serializable {
     public void setIdPregunta(int idPregunta) {
         this.idPregunta = idPregunta;
     }
+    public Tipopregunta getTipopregunta() {
+        return this.tipopregunta;
+    }
+    
+    public void setTipopregunta(Tipopregunta tipopregunta) {
+        this.tipopregunta = tipopregunta;
+    }
     public String getEnunciado() {
         return this.enunciado;
     }
     
     public void setEnunciado(String enunciado) {
         this.enunciado = enunciado;
-    }
-    public double getDificultad() {
-        return this.dificultad;
-    }
-    
-    public void setDificultad(double dificultad) {
-        this.dificultad = dificultad;
-    }
-    public double getFdescuido() {
-        return this.fdescuido;
-    }
-    
-    public void setFdescuido(double fdescuido) {
-        this.fdescuido = fdescuido;
-    }
-    public double getIndiceDis() {
-        return this.indiceDis;
-    }
-    
-    public void setIndiceDis(double indiceDis) {
-        this.indiceDis = indiceDis;
     }
     public String getNombrePreg() {
         return this.nombrePreg;

@@ -30,7 +30,9 @@ public class DaoPregunta implements Interface.InterfacePregunta {
         String hql = "from Pregunta";
         Query query = session.createQuery(hql);
         List<Pregunta> listaPreguntas = (List<Pregunta>) query.list();
-
+        for(Pregunta lista: listaPreguntas){
+            Hibernate.initialize(lista.getTipopregunta());
+        }
         return listaPreguntas;
     }
 
@@ -44,6 +46,7 @@ public class DaoPregunta implements Interface.InterfacePregunta {
         for(PregConc lista: listaPreguntas){
             Hibernate.initialize(lista.getPregunta());
             Hibernate.initialize(lista.getConcepto());
+            Hibernate.initialize(lista.getPregunta().getTipopregunta());
         }
         
         return listaPreguntas;
@@ -66,6 +69,7 @@ public class DaoPregunta implements Interface.InterfacePregunta {
         query.setParameter("idPregunta", idPregunta);
         Pregunta pregunta = (Pregunta) query.uniqueResult();
         Hibernate.initialize(pregunta.getItems());
+        Hibernate.initialize(pregunta.getTipopregunta());
         return pregunta;
     }
     

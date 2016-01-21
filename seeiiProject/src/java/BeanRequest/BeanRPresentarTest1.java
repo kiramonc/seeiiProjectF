@@ -555,19 +555,19 @@ public class BeanRPresentarTest1 {
     }
 
     private String getTipoPreg(Pregunta pregunta) {
-        if (pregunta.getDificultad() == 0.9 && pregunta.getFdescuido() == 0.22 && pregunta.getIndiceDis() == 1.2) {
+        if (pregunta.getTipopregunta().getIdTipo()==1) {
             return "listenF";
         } else {
-            if (pregunta.getDificultad() == 3.0 && pregunta.getFdescuido() == 0.25 && pregunta.getIndiceDis() == 2.2) {
+            if (pregunta.getTipopregunta().getIdTipo()==2) {
                 return "listenM";
             } else {
-                if (pregunta.getDificultad() == 0.89 && pregunta.getFdescuido() == 0.22 && pregunta.getIndiceDis() == 1.2) {
+                if (pregunta.getTipopregunta().getIdTipo()==3) {
                     return "speakF";
                 } else {
-                    if (pregunta.getDificultad() == 3.0 && pregunta.getFdescuido() == 0.25 && pregunta.getIndiceDis() == 2.0) {
+                    if (pregunta.getTipopregunta().getIdTipo()==4) {
                         return "speakM";
                     } else {
-                        if (pregunta.getDificultad() == 4.0 && pregunta.getFdescuido() == 0.24 && pregunta.getIndiceDis() == 2.0) {
+                        if (pregunta.getTipopregunta().getIdTipo()==5) {
                             return "speakD";
                         }
                         return null;

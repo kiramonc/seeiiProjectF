@@ -333,7 +333,7 @@ public class CrearBayesDynamic {
                 listaV.add(concepto);
             }
             tablaPPregunta.setVariables(listaV); // Establecer Variables
-            tablaPPregunta.setValues(setValoresCondicionante(listaV, numItems, preguntaT.getDificultad(), preguntaT.getFdescuido(), preguntaT.getIndiceDis(), numConceptos)); // Establecer valores
+            tablaPPregunta.setValues(setValoresCondicionante(listaV, numItems, preguntaT.getTipopregunta().getDificultad(), preguntaT.getTipopregunta().getFdescuido(), preguntaT.getTipopregunta().getIndiceDis(), numConceptos)); // Establecer valores
 
             /**
              * Crear nodos
@@ -426,7 +426,7 @@ public class CrearBayesDynamic {
                 listaV.add(concepto);
             }
             tablaPPregunta.setVariables(listaV); // Establecer Variables
-            tablaPPregunta.setValues(setValoresCondicionante(listaV, numItems, preguntaT.getDificultad(), preguntaT.getFdescuido(), preguntaT.getIndiceDis(), numConceptos)); // Establecer valores
+            tablaPPregunta.setValues(setValoresCondicionante(listaV, numItems, preguntaT.getTipopregunta().getDificultad(), preguntaT.getTipopregunta().getFdescuido(), preguntaT.getTipopregunta().getIndiceDis(), numConceptos)); // Establecer valores
 
             ProbNode nodo = new ProbNode(probNet1, pregunta, NodeType.CHANCE);
             nodo.setPotential(tablaPPregunta);
@@ -484,7 +484,7 @@ public class CrearBayesDynamic {
                     probNet1.removeProbNode(probNet1.getProbNode(pregunta)); // eliminamos el nodo de la pregunta
                     System.out.println("LA PREGUNTA NO SE RELACIONA CON NADIE MÁS. ELIMINA PREGUNTA");
                 } else {
-                    tablaPPregunta.setValues(setValoresCondicionante(variablesPregunta, preguntasItems.get(p.getIdPregunta()), p.getDificultad(), p.getFdescuido(), p.getIndiceDis(), numConceptos)); // Establecer valores
+                    tablaPPregunta.setValues(setValoresCondicionante(variablesPregunta, preguntasItems.get(p.getIdPregunta()), p.getTipopregunta().getDificultad(), p.getTipopregunta().getFdescuido(), p.getTipopregunta().getIndiceDis(), numConceptos)); // Establecer valores
                     System.out.println("LA PREGUNTA TIENE OTROS CONCEPTOS. RECALCULA VALORES");
                     nodo = new ProbNode(probNet1, pregunta, NodeType.CHANCE);
                     nodo.setPotential(tablaPPregunta);
@@ -890,8 +890,8 @@ public class CrearBayesDynamic {
         Concepto conc = new Concepto(1, new Tema(), "Concepto", "traducción", true);
         Concepto conc1 = new Concepto(2, new Tema(), "Concepto1", "traducción", true);
 //        
-        Pregunta pregunta = new Pregunta(1, "Enunciado", 0.02, 0.02, 0.02, "Pregunta", true);
-        Pregunta pregunta1 = new Pregunta(2, "Enunciado", 0.02, 0.02, 0.02, "Pregunta1", true);
+//        Pregunta pregunta = new Pregunta(1, "Enunciado", 0.02, 0.02, 0.02, "Pregunta", true);
+  //      Pregunta pregunta1 = new Pregunta(2, "Enunciado", 0.02, 0.02, 0.02, "Pregunta1", true);
 //        Pregunta pregunta3 = new Pregunta(3, test, conc, "Descripcion", 3, true); // Speak M
 //        Pregunta pregunta4 = new Pregunta(4, test, conc, "Descripcion", 2, true); // Listen F
 //        Pregunta pregunta5 = new Pregunta(5, test, conc, "Descripcion", 2, true); // Speak F
@@ -958,15 +958,15 @@ public class CrearBayesDynamic {
         String nombreTema = "TemaControl";
 //
         ArrayList<Pregunta> lstPreguntas = new ArrayList<>(); // preguntas Concepto3
-        lstPreguntas.add(pregunta);
-        lstPreguntas.add(pregunta1);
+//        lstPreguntas.add(pregunta);
+  //      lstPreguntas.add(pregunta1);
 //        lstPreguntas.add(pregunta3);
 //        lstPreguntas.add(pregunta4);
 //        lstPreguntas.add(pregunta5);
 //        lstPreguntas.add(pregunta11);
 //        
         ArrayList<Pregunta> lstPreguntas2 = new ArrayList<>(); // preguntas Concepto3
-        lstPreguntas2.add(pregunta1);
+    //    lstPreguntas2.add(pregunta1);
 //        lstPreguntas2.add(pregunta5);
 //        lstPreguntas2.add(pregunta6);
 //        lstPreguntas2.add(pregunta7);

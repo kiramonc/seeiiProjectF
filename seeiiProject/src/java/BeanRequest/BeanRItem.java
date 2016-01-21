@@ -193,17 +193,21 @@ public class BeanRItem {
     public void actualizar() {
         this.session = null;
         this.transaction = null;
-        try {
-            actualizarImg();
-        } catch (IOException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "ERROR DE LECTURA ESCRITURA:", "Contacte con el administrador" + ex.getMessage()));
-        }
+        
         
         try {
             DaoItem daoItem = new DaoItem();
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaction = session.beginTransaction();
+            try {
+            if(nombreImagen!=null){
+            actualizarImg();
             this.item.setImgItem(nombreImagen);
+            }
+        } catch (IOException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "ERROR DE LECTURA ESCRITURA:", "Contacte con el administrador" + ex.getMessage()));
+        }
+            
             daoItem.actualizar(this.session, this.item);
             this.transaction.commit();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Correcto:", "Los cambios se realizaron con éxito."));

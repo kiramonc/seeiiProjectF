@@ -66,7 +66,7 @@
                                 </p:column>
 
                                 <p:column headerText="TIPO PREGUNTA" width="30%">
-                                    <p:outputLabel value="#{beanRPregunta.outputLabel(item)}"/>
+                                    <p:outputLabel value="#{item.tipopregunta.nombreTipo}"/>
                                 </p:column>
                                 <p:column headerText="OPERACIONES" width="10%">
                                     <p:commandButton value="Ver items" actionListener="#{beanRPregunta.abrirDialogoVerItems(item.idPregunta)}" immediate="true">
@@ -98,7 +98,7 @@
                                         <p:message for="txtEnunciadoPregunta"/>
 
                                         <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
-                                        <p:inputText id="menuTipoPreg" value="#{beanRPregunta.outputLabel()}" readonly="true" size="28"/>
+                                        <p:inputText id="menuTipoPreg" value="#{beanRPregunta.pregunta.tipopregunta.nombreTipo}" readonly="true" size="28"/>
                                         <p:message for="menuTipoPreg"/>
                                     </h:panelGrid>
 
@@ -137,33 +137,30 @@
                                 <p:inputTextarea id="txtEnunciadoPregunta" label="Enunciado" value="#{beanRPregunta.pregunta.enunciado}" required="true" cols="30">
                                 </p:inputTextarea>
                                 <p:message for="txtEnunciadoPregunta"/>
-
+                                
                                 <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
-                                <p:selectOneMenu id="menuTipoPreg" value="#{beanRPregunta.tipoPreg}" immediate="true" style="width: 240px;">
-                                    <f:ajax render="txtDificultad txtIndiceDis txtfDescuido" />
-                                    <f:selectItem itemLabel="-Escoger-" noSelectionOption="true"/>
-                                    <f:selectItem itemValue="listenF" itemLabel="Escuchar (Fácil)" />
-                                    <f:selectItem itemValue="listenM" itemLabel="Escuchar (Medio)"/>
-                                    <f:selectItem itemValue="speakF" itemLabel="Hablar (Fácil) "/>
-                                    <f:selectItem itemValue="speakM" itemLabel="Hablar (Medio)"/>
-                                    <f:selectItem itemValue="speakD" itemLabel="Escuchar y Hablar (Difícil)"/>
+                                <p:selectOneMenu converter="tipoPregConverter" id="menuTipoPreg" value="#{beanRPregunta.tipoPregunta}" style="width: 240px;">
+                                    <f:ajax render="txtDificultad"/>
+                                    <f:selectItems id="itemsTipoPreg" value="#{beanRPregunta.listaTiposPregunta}" var="r" itemLabel="#{r.nombreTipo}"/>
+                                    <f:converter converterId="tipoPregConverter"/>
+                                    
                                 </p:selectOneMenu>
                                 <p:message for="menuTipoPreg"/>
 
                                 <p:outputLabel value="Dificultad: " for="txtDificultad"/>
-                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.pregunta.dificultad}" disabled="true" style="width: 230px;">
+                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.tipoPregunta.dificultad}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtDificultad"/>
 
                                 <p:outputLabel value="Índice de discriminación: " for="txtIndiceDis"/>
-                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.pregunta.indiceDis}" disabled="true" style="width: 230px;">
+                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.tipoPregunta.indiceDis}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtIndiceDis"/>
 
                                 <p:outputLabel value="Factor descuido: " for="txtfDescuido"/>
-                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.pregunta.fdescuido}" disabled="true" style="width: 230px;">
+                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.tipoPregunta.fdescuido}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtfDescuido"/>
@@ -200,31 +197,30 @@
                                 <p:message for="txtEnunciadoPregunta"/>
 
                                 <p:outputLabel value="Tipo de pregunta: " for="menuTipoPreg"/>
-                                <p:selectOneMenu id="menuTipoPreg" value="#{beanRPregunta.tipoPreg}" immediate="true"  style="width: 240px;">
-                                    <f:ajax render="txtDificultad txtIndiceDis txtfDescuido" />
+                                <p:selectOneMenu converter="tipoPregConverter" id="menuTipoPreg" value="#{beanRPregunta.pregunta.tipopregunta}" immediate="true" style="width: 240px;">
+                                    <p:ajax update="txtDificultad txtIndiceDis txtfDescuido" />
                                     <f:selectItem itemLabel="-Escoger-" noSelectionOption="true"/>
-                                    <f:selectItem itemValue="listenF" itemLabel="Escuchar (Fácil)" />
-                                    <f:selectItem itemValue="listenM" itemLabel="Escuchar (Medio)"/>
-                                    <f:selectItem itemValue="speakF" itemLabel="Hablar (Fácil) "/>
-                                    <f:selectItem itemValue="speakM" itemLabel="Hablar (Medio)"/>
-                                    <f:selectItem itemValue="speakD" itemLabel="Escuchar y Hablar (Difícil)"/>
+                                    <f:selectItems id="itemsTipoPreg" value="#{beanRPregunta.listaTiposPregunta}" var="r" itemLabel="#{r.nombreTipo}"/>
+                                    <f:converter converterId="tipoPregConverter"/>
+                                    <!--<p:ajax listener="#{beanRUsuario.asignarEstudiante()}"></p:ajax>
+                                    <p:ajax update="menuUnidad"></p:ajax>-->
                                 </p:selectOneMenu>
                                 <p:message for="menuTipoPreg"/>
 
                                 <p:outputLabel value="Dificultad: " for="txtDificultad"/>
-                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.pregunta.dificultad}" disabled="true" style="width: 230px;">
+                                <p:inputText converter="#{Double}" id="txtDificultad" label="Dificultad" value="#{beanRPregunta.pregunta.tipopregunta.dificultad}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtDificultad"/>
 
-                                <p:outputLabel value="Índice discriminación: " for="txtIndiceDis"/>
-                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.pregunta.indiceDis}" disabled="true" style="width: 230px;">
+                                <p:outputLabel value="Índice de discriminación: " for="txtIndiceDis"/>
+                                <p:inputText converter="#{Double}" id="txtIndiceDis" label="Índice discriminación" value="#{beanRPregunta.pregunta.tipopregunta.indiceDis}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtIndiceDis"/>
 
                                 <p:outputLabel value="Factor descuido: " for="txtfDescuido"/>
-                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.pregunta.fdescuido}" disabled="true" style="width: 230px;">
+                                <p:inputText converter="#{Double}" id="txtfDescuido" label="Factor descuido" value="#{beanRPregunta.pregunta.tipopregunta.fdescuido}" disabled="true" style="width: 230px;">
                                     <f:validator validatorId="validatorVacio"/>
                                 </p:inputText>
                                 <p:message for="txtfDescuido"/>

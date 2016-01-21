@@ -6,19 +6,19 @@
 package BeanRequest;
 
 import Clases.RedBayesiana.CrearBayesDynamic;
-import Clases.RedBayesiana.CrearBayesNetwork1;
 import Dao.DaoConcepto;
 import Dao.DaoItem;
 import Dao.DaoPregConc;
 import Dao.DaoPregunta;
 import Dao.DaoTema;
-import Dao.DaoUnidadE;
+import Dao.DaoTipoPregunta;
 import HibernateUtil.HibernateUtil;
 import Pojo.Concepto;
 import Pojo.Item;
 import Pojo.PregConc;
 import Pojo.Pregunta;
 import Pojo.Tema;
+import Pojo.Tipopregunta;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -41,6 +41,7 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.model.DualListModel;
 import org.primefaces.model.UploadedFile;
 import org.supercsv.cellprocessor.ParseBool;
+import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.io.CsvMapReader;
@@ -61,17 +62,18 @@ public class BeanRPregunta {
     private Session session;
     private Transaction transaction;
     private HashMap<Integer, List<Concepto>> pregConc;
-    private String tipoPreg;
     private Concepto concepto;
     private List<Concepto> target = new ArrayList<>();
     private DualListModel<Concepto> modelConc = new DualListModel<Concepto>();
     private UploadedFile csvFile;
     private String nombreArchivo;
-    private int idPregunta;
+    private List<Tipopregunta> listaTiposPregunta;
+    private Tipopregunta tipoPregunta;
 
     //constructor
     public BeanRPregunta() {
         this.pregunta = new Pregunta();
+        this.tipoPregunta= new Tipopregunta();
     }
 
     public void registrar(Tema tema) {
@@ -437,6 +439,7 @@ public class BeanRPregunta {
     // listener que inicializa el target (lista de conceptos) cuando se cambia de pregunta
     public void cargarPregunta() {
         this.target = new ArrayList<>();
+        this.tipoPregunta= this.pregunta.getTipopregunta();
     }
 
     public void setModelConc(DualListModel<Concepto> modelConc) {
@@ -451,119 +454,6 @@ public class BeanRPregunta {
         this.concepto = concepto;
     }
 
-    public String outputLabel() {
-        String tipoPregunta = getTipoPreg();
-        if (null != tipoPregunta) {
-            switch (tipoPregunta) {
-                case "listenF":
-                    return "Escuchar (Fácil)";
-                case "listenM":
-                    return "Escuchar (Medio)";
-                case "speakF":
-                    return "Hablar (Fácil)";
-                case "speakM":
-                    return "Hablar (Medio)";
-                case "speakD":
-                    return "Escuchar y Hablar (Difícil)";
-            }
-        }
-        return "Error";
-    }
-
-    public String outputLabel(Pregunta pregunta) {
-        String tipoPregunta = getTipoPreg(pregunta);
-        if (null != tipoPregunta) {
-            switch (tipoPregunta) {
-                case "listenF":
-                    return "Escuchar (Fácil)";
-                case "listenM":
-                    return "Escuchar (Medio)";
-                case "speakF":
-                    return "Hablar (Fácil)";
-                case "speakM":
-                    return "Hablar (Medio)";
-                case "speakD":
-                    return "Escuchar y Hablar (Difícil)";
-            }
-        }
-        return "Error";
-    }
-
-    public String getTipoPreg() {
-        if (pregunta != null) {
-            if (this.pregunta.getDificultad() == 0.9 && this.pregunta.getFdescuido() == 0.22 && this.pregunta.getIndiceDis() == 1.2) {
-                tipoPreg = "listenF";
-            } else {
-                if (this.pregunta.getDificultad() == 3.0 && this.pregunta.getFdescuido() == 0.25 && this.pregunta.getIndiceDis() == 2.2) {
-                    tipoPreg = "listenM";
-                } else {
-                    if (this.pregunta.getDificultad() == 0.89 && this.pregunta.getFdescuido() == 0.22 && this.pregunta.getIndiceDis() == 1.2) {
-                        tipoPreg = "speakF";
-                    } else {
-                        if (this.pregunta.getDificultad() == 3.0 && this.pregunta.getFdescuido() == 0.25 && this.pregunta.getIndiceDis() == 2.0) {
-                            tipoPreg = "speakM";
-                        } else {
-                            if (this.pregunta.getDificultad() == 4.0 && this.pregunta.getFdescuido() == 0.24 && this.pregunta.getIndiceDis() == 2.0) {
-                                tipoPreg = "speakD";
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return tipoPreg;
-    }
-
-    public String getTipoPreg(Pregunta pregunta) {
-        if (pregunta != null) {
-            if (pregunta.getDificultad() == 0.9 && pregunta.getFdescuido() == 0.22 && pregunta.getIndiceDis() == 1.2) {
-                tipoPreg = "listenF";
-            } else {
-                if (pregunta.getDificultad() == 3.0 && pregunta.getFdescuido() == 0.25 && pregunta.getIndiceDis() == 2.2) {
-                    tipoPreg = "listenM";
-                } else {
-                    if (pregunta.getDificultad() == 0.89 && pregunta.getFdescuido() == 0.22 && pregunta.getIndiceDis() == 1.2) {
-                        tipoPreg = "speakF";
-                    } else {
-                        if (pregunta.getDificultad() == 3.0 && pregunta.getFdescuido() == 0.25 && pregunta.getIndiceDis() == 2.0) {
-                            tipoPreg = "speakM";
-                        } else {
-                            if (pregunta.getDificultad() == 4.0 && pregunta.getFdescuido() == 0.24 && pregunta.getIndiceDis() == 2.0) {
-                                tipoPreg = "speakD";
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return tipoPreg;
-    }
-
-    public void setTipoPreg(String tipoPreg) {
-        if (tipoPreg.equalsIgnoreCase("listenF")) {
-            this.pregunta.setDificultad(0.9);
-            this.pregunta.setFdescuido(0.22);
-            this.pregunta.setIndiceDis(1.2);
-        } else if (tipoPreg.equalsIgnoreCase("listenM")) {
-            this.pregunta.setDificultad(3.0);
-            this.pregunta.setFdescuido(0.25);
-            this.pregunta.setIndiceDis(2.2);
-        } else if (tipoPreg.equalsIgnoreCase("speakF")) {
-            this.pregunta.setDificultad(0.89);
-            this.pregunta.setFdescuido(0.22);
-            this.pregunta.setIndiceDis(1.2);
-        } else if (tipoPreg.equalsIgnoreCase("speakM")) {
-            this.pregunta.setDificultad(3.0);
-            this.pregunta.setFdescuido(0.25);
-            this.pregunta.setIndiceDis(2.0);
-        } else if (tipoPreg.equalsIgnoreCase("speakD")) {
-            this.pregunta.setDificultad(4.0);
-            this.pregunta.setFdescuido(0.24);
-            this.pregunta.setIndiceDis(2.0);
-        }
-        this.tipoPreg = tipoPreg;
-    }
-
     public void importarPreguntas() {
         ICsvMapReader mapReader = null;
         this.session = null;
@@ -571,6 +461,7 @@ public class BeanRPregunta {
         DaoPregunta daoPregunta = new DaoPregunta();
         DaoPregConc daoPregConc = new DaoPregConc();
         DaoConcepto daoConcepto = new DaoConcepto();
+        DaoTipoPregunta daoTipoPreg = new DaoTipoPregunta();
         DaoItem daoItem = new DaoItem();
         try {
             actualizarCSV();
@@ -617,28 +508,10 @@ public class BeanRPregunta {
                 System.out.println("CREACIÓN PREGUNTA");
                 t = new Pregunta();
                 t.setNombrePreg("NombrePreg");
-                String tipo = (String) userMap.get("tipo");
-                if (tipo.equalsIgnoreCase("listenF")) {
-                    t.setDificultad(0.9);
-                    t.setFdescuido(0.22);
-                    t.setIndiceDis(1.2);
-                } else if (tipo.equalsIgnoreCase("listenM")) {
-                    t.setDificultad(3.0);
-                    t.setFdescuido(0.25);
-                    t.setIndiceDis(2.2);
-                } else if (tipo.equalsIgnoreCase("speakF")) {
-                    t.setDificultad(0.89);
-                    t.setFdescuido(0.22);
-                    t.setIndiceDis(1.2);
-                } else if (tipo.equalsIgnoreCase("speakM")) {
-                    t.setDificultad(3.0);
-                    t.setFdescuido(0.25);
-                    t.setIndiceDis(2.0);
-                } else if (tipo.equalsIgnoreCase("speakD")) {
-                    t.setDificultad(4.0);
-                    t.setFdescuido(0.24);
-                    t.setIndiceDis(2.0);
-                }
+                int tipo = (Integer) userMap.get("tipo");
+                
+                    t.setTipopregunta(daoTipoPreg.verPorID(session, tipo));
+                
                 t.setEnunciado((String) userMap.get("enunciado"));
                 t.setEstado((boolean) userMap.get("estado"));
                 daoPregunta.registrar(this.session, t);
@@ -716,7 +589,7 @@ public class BeanRPregunta {
         final CellProcessor[] processors = new CellProcessor[]{
             new NotNull(), // tema
             new NotNull(new ParseBool()), // estado
-            new NotNull(), // tipo
+            new NotNull(new ParseInt()), // tipo
             new NotNull(), // enunciado
             new NotNull(), // conceptos
             new NotNull(), // items
@@ -774,6 +647,29 @@ public class BeanRPregunta {
                 outputS.close();
             }
         }
+    }
+    
+    public void asignarParametros(){
+        
+    }
+
+    public List<Tipopregunta> getListaTiposPregunta() {
+        DaoTipoPregunta daoRol = new DaoTipoPregunta();
+        List<Tipopregunta> roles = daoRol.verTodo();
+        listaTiposPregunta = roles;
+        return listaTiposPregunta;
+    }
+
+    public void setListaTiposPregunta(List<Tipopregunta> listaTiposPregunta) {
+        this.listaTiposPregunta = listaTiposPregunta;
+    }
+
+    public Tipopregunta getTipoPregunta() {
+        return tipoPregunta;
+    }
+
+    public void setTipoPregunta(Tipopregunta tipoPregunta) {
+        this.tipoPregunta = tipoPregunta;
     }
     
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/01/2016 09:37:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Pojo.Tipopregunta" table="tipopregunta" catalog="seeiibd">
+        <id name="idTipo" type="int">
+            <column name="idTipo" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreTipo" type="string">
+            <column name="nombreTipo" length="25" not-null="true" />
+        </property>
+        <property name="dificultad" type="double">
+            <column name="dificultad" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fdescuido" type="double">
+            <column name="fdescuido" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="indiceDis" type="double">
+            <column name="indiceDis" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="preguntas" table="pregunta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoPreg" not-null="true" />
+            </key>
+            <one-to-many class="Pojo.Pregunta" />
+        </set>
+    </class>
+</hibernate-mapping>

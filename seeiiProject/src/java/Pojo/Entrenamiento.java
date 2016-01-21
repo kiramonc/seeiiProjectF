@@ -1,5 +1,5 @@
 package Pojo;
-// Generated 19/11/2015 09:00:12 PM by Hibernate Tools 3.6.0
+// Generated 18/01/2016 09:37:35 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -13,8 +13,8 @@ public class Entrenamiento  implements java.io.Serializable {
 
 
      private int idEntrena;
-     private Estudiante estudiante;
      private Tema tema;
+     private Estudiante estudiante;
      private int error;
      private int tiempo;
      private int puntaje;
@@ -25,19 +25,19 @@ public class Entrenamiento  implements java.io.Serializable {
     }
 
 	
-    public Entrenamiento(int idEntrena, Estudiante estudiante, Tema tema, int error, int tiempo, int puntaje, Date fecha) {
+    public Entrenamiento(int idEntrena, Tema tema, Estudiante estudiante, int error, int tiempo, int puntaje, Date fecha) {
         this.idEntrena = idEntrena;
-        this.estudiante = estudiante;
         this.tema = tema;
+        this.estudiante = estudiante;
         this.error = error;
         this.tiempo = tiempo;
         this.puntaje = puntaje;
         this.fecha = fecha;
     }
-    public Entrenamiento(int idEntrena, Estudiante estudiante, Tema tema, int error, int tiempo, int puntaje, Date fecha, Set preguntaentrenars) {
+    public Entrenamiento(int idEntrena, Tema tema, Estudiante estudiante, int error, int tiempo, int puntaje, Date fecha, Set preguntaentrenars) {
        this.idEntrena = idEntrena;
-       this.estudiante = estudiante;
        this.tema = tema;
+       this.estudiante = estudiante;
        this.error = error;
        this.tiempo = tiempo;
        this.puntaje = puntaje;
@@ -52,19 +52,19 @@ public class Entrenamiento  implements java.io.Serializable {
     public void setIdEntrena(int idEntrena) {
         this.idEntrena = idEntrena;
     }
-    public Estudiante getEstudiante() {
-        return this.estudiante;
-    }
-    
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
     public Tema getTema() {
         return this.tema;
     }
     
     public void setTema(Tema tema) {
         this.tema = tema;
+    }
+    public Estudiante getEstudiante() {
+        return this.estudiante;
+    }
+    
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
     public int getError() {
         return this.error;

@@ -1,5 +1,5 @@
 package Pojo;
-// Generated 19/11/2015 09:00:12 PM by Hibernate Tools 3.6.0
+// Generated 18/01/2016 09:37:35 PM by Hibernate Tools 3.6.0
 
 
 
@@ -10,16 +10,16 @@ public class Fichaspregunta  implements java.io.Serializable {
 
 
      private int idFichaInt;
-     private Ficha ficha;
      private Preguntaentrenar preguntaentrenar;
+     private Ficha ficha;
 
     public Fichaspregunta() {
     }
 
-    public Fichaspregunta(int idFichaInt, Ficha ficha, Preguntaentrenar preguntaentrenar) {
+    public Fichaspregunta(int idFichaInt, Preguntaentrenar preguntaentrenar, Ficha ficha) {
        this.idFichaInt = idFichaInt;
-       this.ficha = ficha;
        this.preguntaentrenar = preguntaentrenar;
+       this.ficha = ficha;
     }
    
     public int getIdFichaInt() {
@@ -29,13 +29,6 @@ public class Fichaspregunta  implements java.io.Serializable {
     public void setIdFichaInt(int idFichaInt) {
         this.idFichaInt = idFichaInt;
     }
-    public Ficha getFicha() {
-        return this.ficha;
-    }
-    
-    public void setFicha(Ficha ficha) {
-        this.ficha = ficha;
-    }
     public Preguntaentrenar getPreguntaentrenar() {
         return this.preguntaentrenar;
     }
@@ -43,7 +36,13 @@ public class Fichaspregunta  implements java.io.Serializable {
     public void setPreguntaentrenar(Preguntaentrenar preguntaentrenar) {
         this.preguntaentrenar = preguntaentrenar;
     }
-
+    public Ficha getFicha() {
+        return this.ficha;
+    }
+    
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
 
 
 
