@@ -67,7 +67,6 @@ public class BeanRConcepto {
         concepto = new Concepto();
     }
 
-    //Metodos
     public void registrar() {
         this.session = null;
         this.transaction = null;

@@ -45,7 +45,7 @@
                             <input id="enunciadoPregListen1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
                             <p:outputLabel id="enunciadoPregListen" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
                             <p:commandLink ajax="true" onclick="javascript: leerPregListen()">
-                                <div id="iconListenF">
+                                <div id="iconListenFPreg">
                                     <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
                                 </div>
                             </p:commandLink>
@@ -73,6 +73,11 @@
                         <center>
                             <input id="enunciadoPregSpeakF1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
                             <p:outputLabel id="enunciadoPregSpeakF" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                            <p:commandLink ajax="true" onclick="javascript: leerPregSpeakF()">
+                                <div id="iconSpeakFPreg">
+                                    <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
+                                </div>
+                            </p:commandLink>
                         </center>
                         <br/>
                         <p:dataGrid id="gridItemsPreguntaSpeakF" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12" styleClass="itemsPreguntaListen">
@@ -96,6 +101,11 @@
                         <center>
                             <input id="enunciadoPregSpeakMD1" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" type="hidden"/>
                             <p:outputLabel id="enunciadoPregSpeakMD" value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 22px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif;"/>
+                            <p:commandLink ajax="true" onclick="javascript: leerPregSpeakMD()">
+                                <div id="iconSpeakMDPreg">
+                                    <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
+                                </div>
+                            </p:commandLink>
                         </center>
                         <br/>
                         <p:dataGrid id="gridItemsPreguntaSpeakMD" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12">

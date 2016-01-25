@@ -55,7 +55,7 @@ function escucharAnnyangF(element, elementMos, elementoPos) {
             }
             
         });
-        var r= document.getElementById('iconListenF')
+        var r= document.getElementById('iconListenF');
         r.style.background="#5cbf2a";
         r.style.border="1px solid #18ab29";
         annyang.start(); // Annyang y la Cual solicita permiso al usuario para usar el micrófono
@@ -108,7 +108,7 @@ function escucharAnnyangMD(element, elementMos, elementPos) {
             }
             
         });
-        var r= document.getElementById('iconListenMD')
+        var r= document.getElementById('iconListenMD');
         r.style.background="#5cbf2a";
         r.style.border="1px solid #18ab29";
         annyang.start(); // Annyang y la Cual solicita permiso al usuario para usar el micrófono
