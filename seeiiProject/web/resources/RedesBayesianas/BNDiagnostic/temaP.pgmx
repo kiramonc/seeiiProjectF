@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Preg60" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="299" y="253" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="conc" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="288" y="77" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="conc" />
+        <Variable name="Preg60" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg60" />
+          <Variable name="conc" />
+        </Variables>
+        <Values>0.75 0.25 0.12 0.88</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+  <Policies>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="conc" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+  </Policies>
+</ProbModelXML>

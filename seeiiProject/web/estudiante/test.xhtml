@@ -81,7 +81,7 @@
                         </center>
                         <br/>
                         <p:dataGrid id="gridItemsPreguntaSpeakF" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12" styleClass="itemsPreguntaListen">
-                            <p:panel header="#{item.nombreItem}" style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; width: auto; display: table-row;">
+                            <p:panel style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; width: auto; display: table-row;">
                                 <h:panelGrid columns="1">
                                     <center>
                                         <p:commandLink update=":frmResultadoSpeakF:panelResultadoSpeakF" onclick="PF('dialogResultadoSpeakF').show()" ignoreAutoUpdate="true" >
@@ -109,11 +109,11 @@
                         </center>
                         <br/>
                         <p:dataGrid id="gridItemsPreguntaSpeakMD" var="item" value="#{beanRPresentarTest1.itemsPorPregunta()}"  columns="4" rows="12">
-                            <p:panel header="#{item.nombreItem}" style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; text-align: center;">
+                            <p:panel style="font-size: 18px; color: #036fab; text-shadow: 1px 1px 1px; font-family: cursive,sans-serif; text-transform: uppercase; text-align: center;">
                                 <h:panelGrid columns="1" style="width: 100%;">
                                     <center>
                                         <p:commandLink update=":frmResultadoSpeakMD:panelResultadoSpeakMD" onclick="PF('dialogResultadoSpeakMD').show()" ignoreAutoUpdate="true" >
-                                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{item.imgItem}" width="170" height="170" cache="false" style="background: white;"/>
+                                            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{item.imgItem}" width="310" height="310" cache="false" style="background: white;"/>
                                             <f:setPropertyActionListener value="#{item.nombreItem}" target="#{beanRPresentarTest1.respuestTemp}" />
                                         </p:commandLink>
                                     </center>
@@ -206,7 +206,7 @@
                                     <center>
                                         <p:outputLabel value="#{beanRPresentarTest1.preguntaSeleccionada.enunciado}" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center;"/>
                                         <br/>
-                                        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRPresentarTest1.imgItemSeleccionado}" width="270" height="270" cache="false" style="object-position: center;"/>
+                                        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/imagen/imgItems/#{beanRPresentarTest1.imgItemSeleccionado}" width="310" height="310" cache="false" style="object-position: center;"/>
                                     </center>
                                 </h:panelGroup>
                                 <h:panelGroup>

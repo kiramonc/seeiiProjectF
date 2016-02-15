@@ -6,7 +6,6 @@
 package BeanRequest;
 
 import Clases.RedBayesiana.CrearBayesDynamic;
-import Dao.DaoConcepto;
 import Dao.DaoItem;
 import Dao.DaoPregConc;
 import Dao.DaoPregunta;
@@ -200,9 +199,11 @@ public class BeanRItem {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaction = session.beginTransaction();
             try {
-            if(nombreImagen!=null){
-            actualizarImg();
-            this.item.setImgItem(nombreImagen);
+            if(imagen!=null){
+            if (imagen.getSize() > 0) {
+                    actualizarImg();
+                    this.item.setImgItem(nombreImagen);
+                }
             }
         } catch (IOException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "ERROR DE LECTURA ESCRITURA:", "Contacte con el administrador" + ex.getMessage()));

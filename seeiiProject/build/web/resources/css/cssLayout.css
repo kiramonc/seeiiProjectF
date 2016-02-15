@@ -82,12 +82,12 @@
     padding-right: 50px; 
 }
 .estiloTablaPregunta{
-    width: 600px;
+    width: 100%;
     padding-right: 50px; 
 }
 
 .estiloTablaClass tbody tr>td{
-    width: 100%;
+    width: 30%;
 }
 .tablaTemas tbody tr>td{
     width: 10%;
@@ -104,9 +104,12 @@
 #panelAdministracionUsuario{
 
 }
+#panelAdministracionTest{
+width: 100%;
+}
 
 #panelAdministracionUnidades{
-
+width: 100%;
 }
 #frmDatosFicha{
     border: 2px cadetblue solid;
@@ -141,20 +144,23 @@
 }
 
 #frmListarUnidades{
-    position: inherit;
-    margin-bottom: 20%;
+    position: absolute;
+    float: left;
+    width: 45%;
+    margin-top: -10%;
 }
 
 #frmDatosUnidades{
+    width: 60%px;
     background: #eee;
-    margin-left: 5%;
-    margin-right:5%;
+    margin-left: 50%;
+    
     padding-bottom: 30px;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
-    position: inherit;
+    
     border: 2px cadetblue solid;
 }
 
@@ -257,6 +263,20 @@
 #datosItemsVerItems{
     width: 50%;
     margin-left: 50%;
+}
+
+#frmListarTest{
+    width: 40%;
+    float: left;
+    position: absolute;
+    margin-top: -10%;
+}
+
+#frmDatosTest{
+    width: 50%;
+    height: 100%;
+    margin-left: 45%;
+    margin-top: 0%;
 }
 
 #panelListaEstResultado{

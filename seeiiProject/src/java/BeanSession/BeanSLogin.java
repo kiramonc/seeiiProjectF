@@ -64,7 +64,7 @@ public class BeanSLogin {
             this.passwordLogin=null;
             this.usernameLogin=null;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR:", "Usuario o contraseña incorrecta"));
-            return "/index?faces-redirect=true";
+            return "/index";
             
         }catch (Exception ex) {
             if(this.transaction!=null){

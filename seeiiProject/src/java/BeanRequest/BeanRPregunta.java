@@ -481,9 +481,6 @@ public class BeanRPregunta {
             PregConc relacionConcepto = null;
             StringTokenizer strToken = null;
             String nameC = "";
-            String nameI = "";
-            String traduccion = "";
-            String imgI = "";
             String tema = "";
             Item item = null;
             while ((userMap = mapReader.read(header, processors)) != null) {
@@ -554,11 +551,9 @@ public class BeanRPregunta {
                 // Se crea nodo pregunta en Red bayesiana
                 System.out.println("CAMBIOS EN LA RED BAYESIANA");
                 CrearBayesDynamic rbDynamic = new CrearBayesDynamic();
-                if (!rbDynamic.existPregunta(tema, pregRegistrada.getNombrePreg())) {
+                
                     rbDynamic.crearPregunta(tema, pregRegistrada, lstConceptos, lstItems.size());
-                } else {
-                    rbDynamic.editarPregunta(tema, pregRegistrada, lstConceptos, lstItems.size());
-                }
+                
                 this.transaction.commit();
                 item = new Item();
                 t = new Pregunta();

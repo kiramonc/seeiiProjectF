@@ -59,13 +59,13 @@
                                 <p:commandButton value="Crear Pregunta" actionListener="#{beanRPregunta.abrirDialogoCrearPregunta(beanRTema.tema.idTema)}" styleClass="botonCrearNuevo" icon="ui-icon-circle-plus" disabled="#{beanRTema.deshabilitarBotonCrearPregunta()}"/>
                             </h:panelGrid>
 
-                            <p:dataTable id="tablaPreguntas" var="item" value="#{beanRPregunta.getPreguntasPorTest(beanRTema.tema)}" selection="#{beanRPregunta.pregunta}" selectionMode="single" rowKey="#{item.idPregunta}" paginator="true" rows="10" styleClass="estiloTablaPregunta" tableStyleClass="tablaPregunta">
+                            <p:dataTable id="tablaPreguntas" var="item" value="#{beanRPregunta.getPreguntasPorTest(beanRTema.tema)}" selection="#{beanRPregunta.pregunta}" selectionMode="single" rowKey="#{item.idPregunta}" paginator="true" rows="10" scrollable="true" scrollHeight="200" liveScroll="true" styleClass="estiloTablaPregunta" tableStyleClass="tablaPregunta">
                                 <p:ajax event="rowSelect" update=":frmEditarPregunta:panelEditarPregunta" oncomplete="dialogEditarPregunta.show()" listener="#{beanRPregunta.cargarPregunta()}"/>
-                                <p:column headerText="ENUNCIADO" width="60%">
+                                <p:column headerText="ENUNCIADO" width="20%">
                                     <p:outputLabel value="#{item.enunciado}"/>
                                 </p:column>
 
-                                <p:column headerText="TIPO PREGUNTA" width="30%">
+                                <p:column headerText="TIPO PREGUNTA" width="10%" filterBy="tipopregunta.nombreTipo">
                                     <p:outputLabel value="#{item.tipopregunta.nombreTipo}"/>
                                 </p:column>
                                 <p:column headerText="OPERACIONES" width="10%">

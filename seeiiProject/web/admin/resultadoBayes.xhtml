@@ -24,6 +24,7 @@
 
                                 <p:outputLabel value="Unidad" for="menuUnidad"/><br/>
                                 <p:selectOneMenu converter="unidadEConverter" id="menuUnidad" value="#{beanRResultTestAdmin.unidadE}">
+                                    <f:selectItem itemLabel="--Seleccione unidad--" noSelectionOption="true"/>
                                     <f:selectItems id="itemsUnidad" value="#{beanRUnidadE.allUnidadE}" var="unit" itemLabel="#{unit.nombreUnidad}"/>
                                     <f:converter converterId="unidadEConverter"/>
                                     <p:ajax update="tablaEstudianteResultado"/>
