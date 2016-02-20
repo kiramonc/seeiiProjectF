@@ -21,25 +21,25 @@
                     <b>Usuario: </b>
                     <p:outputLabel value="#{beanSLogin.usernameLogin==null?'Anónimo':beanSLogin.usernameLogin}"/>
                     <!--enlace con el sesion bean-->
-                    
+
                     <p:commandLink value="Cerrar Sesión" action="#{beanSLogin.logout()}" update="frmMenuPrincipal" />
                 </div>
                 <p:megaMenu>
                     <p:menuitem value="Usuario" outcome="/admin/usuarios" icon="ui-icon-person"/>
                     <p:menuitem value="Unidad" outcome="/admin/unidades" icon="ui-icon-bookmark"/>
                     <p:menuitem value="Test" outcome="/admin/test" icon="ui-icon-clipboard"/>
-                    
-                    
-                    <p:submenu label="OPERACIONES" style="width: 300px;">
+
+
+                    <p:submenu label="OPERACIONES" style="width: 80%;">
                         <p:column>
                             <p:submenu label="Ver">
                                 <p:menuitem value="Resultados Test" outcome="/admin/resultadoBayes" icon="iconStadistic"/>
-                            <p:menuitem value="Importar" outcome="/admin/importarDatos" icon="iconImport"/>
+                                <p:menuitem value="Importar" outcome="/admin/importarDatos" icon="iconImport"/>
                             </p:submenu>
-                            </p:column>
-                        </p:submenu>
-                    
-                    
+                        </p:column>
+                    </p:submenu>
+                    <p:menuitem value="Ayuda" outcome="/admin/helpPage" icon="ui-icon-help" style="border: 2px #aaa solid; padding-left: 6px; padding-right: 6px;"/>
+
                 </p:megaMenu>
             </h:form>
             <ui:insert name="top"></ui:insert>

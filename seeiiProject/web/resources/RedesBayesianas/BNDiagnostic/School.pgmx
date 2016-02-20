@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Preg63" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="pencil" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="book" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="shape" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg63" />
+          <Variable name="pencil" />
+        </Variables>
+        <Values>0.74 0.26 0.0033333333 0.9966666667</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+  <Policies>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="pencil" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="book" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="shape" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+  </Policies>
+</ProbModelXML>

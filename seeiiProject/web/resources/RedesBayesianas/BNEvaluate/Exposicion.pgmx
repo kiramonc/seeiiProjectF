@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Exposicion" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="School" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="pencil" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="book" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="shape" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="100" y="100" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Exposicion" />
+          <Variable name="School" />
+        </Variables>
+        <Values>0.95 0.050000000000000044 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="School" />
+          <Variable name="pencil" />
+          <Variable name="book" />
+          <Variable name="shape" />
+        </Variables>
+        <Values>0.95 0.050000000000000044 0.6166666666666667 0.3833333333333333 0.6166666666666667 0.3833333333333333 0.2833333333333334 0.7166666666666666 0.6166666666666667 0.3833333333333333 0.2833333333333334 0.7166666666666666 0.2833333333333334 0.7166666666666666 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="pencil" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="book" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="shape" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>

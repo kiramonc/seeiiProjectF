@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="Preg62" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="243" y="176" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="conceptoTest1" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="333" y="78" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="conceptoTest2" type="finiteStates" role="decision" isInput="false">
+        <Coordinates x="133" y="90" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="conceptoTest1" />
+        <Variable name="Preg62" />
+      </Link>
+      <Link directed="true">
+        <Variable name="conceptoTest2" />
+        <Variable name="Preg62" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Preg62" />
+          <Variable name="conceptoTest1" />
+          <Variable name="conceptoTest2" />
+        </Variables>
+        <Values>0.74 0.26 0.4809369447 0.5190630553 0.4809369447 0.5190630553 0.0033333333 0.9966666667</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+  <Policies>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="conceptoTest1" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+    <Potential type="Table" role="conditionalProbability">
+      <Variables>
+        <Variable name="conceptoTest2" />
+      </Variables>
+      <Values>0.15 0.85</Values>
+    </Potential>
+  </Policies>
+</ProbModelXML>

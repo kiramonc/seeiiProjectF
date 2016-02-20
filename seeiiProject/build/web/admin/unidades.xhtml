@@ -18,7 +18,7 @@
                 <hr/>
                 <h:panelGrid id="panelAdministracionUnidades" columns="2" cellspacing="25px">
                     <h:form id="frmListarUnidades">
-                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
 
                         <h:panelGroup id="listaUnidadE">
                             <center><h3>Lista de unidades de enseñanza</h3></center>
@@ -36,7 +36,7 @@
 
 
                     <h:form id="frmDatosUnidades">
-                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
 
                         <h:panelGrid columns="1" id="panelDatosUnidades">
                             <h:panelGrid columns="3">
@@ -142,7 +142,7 @@
 
 
                 <h:form id="frmCrearTema" enctype="multipart/form-data">
-                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
                     <p:dialog header="Datos del tema" widgetVar="dialogCrearTema" modal="true">
                         <h:panelGrid id="panelCrearTema" columns="3">
                             <p:outputLabel value="Nombre: "  for="txtNombreTema"/>

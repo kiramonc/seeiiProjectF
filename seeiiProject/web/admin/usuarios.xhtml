@@ -16,7 +16,7 @@
                 <center><h2>ADMINISTRACIÓN DE USUARIO</h2></center><hr/>
                 <h:panelGrid id="panelAdministracionUsuario" columns="2" cellspacing="25px">
                     <h:form id="frmListarUsuarios">
-                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
                         <h:panelGroup>
                             <center><h3>Lista de unidades de usuarios</h3></center>
                             <p:dataTable id="tablaListaUsuarios" var="item" value="#{beanRUsuario.allUsuario}" selection="#{beanRUsuario.usuario}" selectionMode="single" rowKey="#{item.idUsuario}" paginator="true" rows="10" filteredValue="#{beanRUsuario.listaUsuarioFiltrado}" styleClass="estiloTabla">
@@ -41,7 +41,7 @@
                     </h:form>
                     
                     <h:form id="frmDatosUsuario">
-                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                        <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
                         <h:panelGrid columns="1" id="panelDatosUsuario">
                             <h:panelGrid columns="3">
                                 <p:outputLabel value="Nombre: " for="txtNombre"/>
@@ -125,7 +125,7 @@
                 </h:panelGrid>
 
                 <h:form id="frmEditarUsuario">
-                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false" life="2000"/>
                     <p:dialog header="Datos del usuario" widgetVar="dialogEditarUsuario" modal="true">
                         <h:panelGrid id="panelEditarUsuario" columns="3">
                             <p:outputLabel value="Nombre: " for="txtNombre"/>

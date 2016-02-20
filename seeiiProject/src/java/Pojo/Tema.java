@@ -23,6 +23,7 @@ public class Tema  implements java.io.Serializable {
      private Set conceptos = new HashSet(0);
 
     public Tema() {
+        imgTema="test.png";
     }
 
 	

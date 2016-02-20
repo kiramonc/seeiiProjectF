@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Variables>
+      <Variable name="unidadTest" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="274" y="62" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="TemaTest" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="270" y="119" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="conceptoTest1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="169" y="207" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+      <Variable name="conceptoTest2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="361" y="205" />
+        <Unit />
+        <Precision>0.0</Precision>
+        <States>
+          <State name="sí" />
+          <State name="no" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="TemaTest" />
+        <Variable name="unidadTest" />
+      </Link>
+      <Link directed="true">
+        <Variable name="conceptoTest1" />
+        <Variable name="TemaTest" />
+      </Link>
+      <Link directed="true">
+        <Variable name="conceptoTest2" />
+        <Variable name="TemaTest" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="unidadTest" />
+          <Variable name="TemaTest" />
+        </Variables>
+        <Values>0.95 0.05 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="TemaTest" />
+          <Variable name="conceptoTest1" />
+          <Variable name="conceptoTest2" />
+        </Variables>
+        <Values>0.95 0.05 0.45 0.55 0.45 0.55 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="conceptoTest1" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="conceptoTest2" />
+        </Variables>
+        <Values>0.05 0.95</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>

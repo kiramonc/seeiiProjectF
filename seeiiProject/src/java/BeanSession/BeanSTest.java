@@ -34,7 +34,7 @@ public class BeanSTest {
         try {
             HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
             httpSession.setAttribute("codigoTest", this.codigoTest);
-            return "test";
+            return "test?faces-redirect=true";
 
         } catch (Exception ex) {
             return null;

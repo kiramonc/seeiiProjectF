@@ -321,3 +321,11 @@ width: 100%;
     width:16px;
     padding-right: 10px;
 }
+
+.iconPdf{
+    background: url(../iconos/pdf1.png) no-repeat !important;
+    background-color: white;
+    height:18px;
+    width:18px;
+    padding-right: 10px;
+}

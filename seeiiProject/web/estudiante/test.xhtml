@@ -7,20 +7,49 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
         <ui:composition template="./../template/doTest.xhtml">
-
             <ui:define name="top"></ui:define>
-
             <ui:define name="content">
-
                 <h:form id="vistaPrincipal">
                     <p:panel visible="#{beanRPresentarTest1.mostrarVistP}" style="height: 450px;">
                         <center>
-                            <p:commandButton ajax="false" value="Start" actionListener="#{beanRPresentarTest1.obtenerPregunta(beanSTest.codigoTest)}" styleClass="botonEmpezar" icon="iconEmpezar" onmouseover="javascript:laugh();"/>
+                            <p:commandButton value="Start" onclick="PF('dialogVerificarMicrofono').show(); startTest();"  styleClass="botonEmpezar" icon="iconEmpezar" onmouseover="javascript:laugh();"/>
                             <p:commandButton ajax="false" value="Maybe later..." action="#{beanRPresentarTest1.salir()}" styleClass="botonMomento" icon="iconMomento"/>
                         </center>
+
+                        <p:dialog styleClass="verificarMicrofDialog" widgetVar="dialogVerificarMicrofono" modal="true" showEffect="fade" hideEffect="explode" style="border-radius: 21px 21px 21px 21px;-moz-border-radius: 21px 21px 21px 21px;-webkit-border-radius: 21px 21px 21px 21px;border: 0px solid #D1B8D1;" onShow="javascript: hablarProbarMicrofono();">
+                            <div id="panelVerificarMicrof" style=" height: 200px; margin-top: 40px; margin-left: 130px;">
+                            <center>
+                                <p:outputLabel value="Verificación del Micrófono" style="font-size: 14px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; border: none; background: transparent;"/>
+                            <input id="verificarMicrof" disabled='true' type="hidden" value="Presiona el botón y cuenta hasta el 5."></input>
+                            
+                                <p:commandLink ajax="true" onclick="javascript: probarMicrofono()">
+                                    <div id="iconMicro">
+                                        <br/>
+                                        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/iconos/voice.png" width="30" height="40"/>
+                                    </div>
+                                </p:commandLink>
+                                <br/>
+                                <div id="inTurnFadingTextG" style="display: none"><div id="inTurnFadingTextG_1" class="inTurnFadingTextG">E</div><div id="inTurnFadingTextG_2" class="inTurnFadingTextG">s</div><div id="inTurnFadingTextG_3" class="inTurnFadingTextG">c</div><div id="inTurnFadingTextG_4" class="inTurnFadingTextG">u</div><div id="inTurnFadingTextG_5" class="inTurnFadingTextG">c</div><div id="inTurnFadingTextG_6" class="inTurnFadingTextG">h</div><div id="inTurnFadingTextG_7" class="inTurnFadingTextG">a</div><div id="inTurnFadingTextG_8" class="inTurnFadingTextG">n</div><div id="inTurnFadingTextG_9" class="inTurnFadingTextG">d</div><div id="inTurnFadingTextG_10" class="inTurnFadingTextG">o</div><div id="inTurnFadingTextG_11" class="inTurnFadingTextG">.</div><div id="inTurnFadingTextG_12" class="inTurnFadingTextG">.</div></div>
+                                <input id="tagEscuchar" value="" disabled='true' type="text" style="font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; border: none; background: transparent;"/>
+                                <p:progressBar widgetVar="pb" interval="500" />
+                            </center>
+                            </div>
+                        </p:dialog>
+                        <p:dialog widgetVar="dialogProbarResp" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarRespMicrofono();">
+                            <p:outputPanel id="panelProbarResp">
+                                <center>
+                                    <input id="respProbarResp" value="" disabled='true' type="hidden"/>
+                                    <input id="respPregSpeakFMostrada" value="Todo está bien." disabled='true' type="text" style="font-size: 16px; font-weight: bold; color: #fff; text-shadow: 0px 0px 1px; text-transform: uppercase; text-align: center; border: none; background: transparent;"/>
+                                    <br/>
+                                    <p:commandButton ajax="false" value="Let's go" action="#{beanRPresentarTest1.obtenerPregunta(beanSTest.codigoTest)}" onclick="PF('dialogProbarResp').hide()" styleClass="botonSiguiente">
+                                    </p:commandButton>
+                                </center>
+                            </p:outputPanel>
+                        </p:dialog>
+                        <br/>
                     </p:panel>
+
                     <p:panel visible="#{beanRPresentarTest1.mostrarSalir}" style="height: 150px;">
                         <p:commandButton styleClass="botonTerminarTest" onclick="PF('dialogSalir').show()" value="Terminar Test"/>
                         <p:dialog widgetVar="dialogSalir" modal="true" showEffect="fade" hideEffect="explode" closable="false" style="background: thistle;" onShow="javascript: hablarSalir();">
@@ -253,20 +282,15 @@
                         </p:outputPanel>
                     </p:dialog>
                 </h:form>
-                <h:outputScript library="js" name="speaking.js" target="body"/>
                 <h:outputScript library="js" name="annyang.js" target="body"/>
                 <h:outputScript library="js" name="annyang.min.js" target="body"/>
-                <script src='https://code.responsivevoice.org/responsivevoice.js'></script>  
+                <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+                <h:outputScript library="js" name="speaking.js?1.1.4" target="body"/>
             </ui:define>
-
             <ui:define name="bottom"></ui:define>
         </ui:composition>
-
-
         <!--<script src="/javax.faces.resource/annyang.js?ln=js"></script>
         <script src="/javax.faces.resource/annyang.min.js?ln=js"></script>
         <script src="/javax.faces.resource/speaking.js?ln=js"></script>-->
-
-
     </body>
 </html>
